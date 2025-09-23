@@ -14,16 +14,17 @@ export const quickLinksData = [
   { title: "Help", href: "/help" },
 ];
 export const categoriesData = [
-  { title: "Wigs", href: "wigs" },
-  { title: "Wig Care", href: "wig-care" },
-  { title: "Hair Care Products", href: "hair-care" },
-  { title: "Styling Tools", href: "styling-tools" },
-  { title: "Electrical Appliances", href: "electrical-appliances" },
-  { title: "Hair Accessories", href: "hair-accessories" },
+  { title: "Mobiles", href: "mobiles" },
+  { title: "Appliances", href: "appliances" },
+  { title: "Smartphones", href: "smartphones" },
+  { title: "Air Conditioners", href: "air-conditioners" },
+  { title: "Washing Machine", href: "washing-machine" },
+  { title: "Kitchen Appliances", href: "kitchen-appliances" },
+  { title: "gadget accessories", href: "gadget-accessories" },
 ];
 export const productType = [
-  { title: "Wigs", value: "wigs" },  
-  { title: "Hair Care", value: "haircare" },
+  { title: "Gadget", value: "gadget" },
   { title: "Appliances", value: "appliances" },
+  { title: "Refrigerators", value: "refrigerators" },
   { title: "Others", value: "others" },
 ];

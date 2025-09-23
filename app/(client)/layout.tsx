@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import {
   ClerkProvider,
 } from '@clerk/nextjs';
+import { SanityLive } from "@/sanity/lib/live";
 
 export const metadata: Metadata = {
   title: "Rosie Beauty",
@@ -18,6 +19,7 @@ export default function RootLayout({
 }>) {
   return (
    <ClerkProvider>
+    <SanityLive />
         <div className="flex flex-col min-h-screen">
           <Header />
         <main className="flex-1">          
