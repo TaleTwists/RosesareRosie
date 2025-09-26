@@ -8,7 +8,7 @@ const Logo = ({className, spanDesign}: {className?: string, spanDesign?: string}
        <h2 className={cn("text-2xl text-shop_dark_green font-black tracking-wider uppercase hover:text-shop_light_green hoverEffect group font-sans", className)}>
         Rosie
         <span className= {cn(
-            'text-shop_light_green group-hover:text-shop_btn_dark_green hoverEffect', spanDesign
+            'text-shop_light_green hoverEffect hover:text-shop_dark_green', spanDesign
         )}>Beauty</span>
        </h2>
     </Link>
