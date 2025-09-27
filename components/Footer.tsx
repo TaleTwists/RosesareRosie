@@ -33,7 +33,7 @@ const Footer = () => {
                 <li key={item?.title}>
                   <Link
                     href={item?.href}
-                    className="hover:text-shop_light_green hoverEffect font-medium"
+                    className="hover:text-shop_light_green hoverEffect font-medium hover:underline decoration-shop_light_green"
                   >
                     {item?.title}
                   </Link>
@@ -48,7 +48,8 @@ const Footer = () => {
                 <li key={item?.title}>
                   <Link
                     href={`/category/${item?.href}`}
-                    className="hover:text-shop_light_green hoverEffect font-medium"
+                    className="hover:text-shop_light_green hover:underline decoration-shop_light_green
+                    hoverEffect font-medium"
                   >
                     {item?.title}
                   </Link>
@@ -56,8 +57,8 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          <div className="space-y-4">
-            <SubTitle>Newsletter</SubTitle>
+          <div className="space-y-3">
+            <SubTitle className="pt-3">Newsletter</SubTitle>
             <SubText>
               Subscribe to our newsletter to receive updates and exclusive
               offers

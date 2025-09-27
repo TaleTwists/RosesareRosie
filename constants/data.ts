@@ -11,9 +11,9 @@ export const quickLinksData = [
   { title: "Terms & Conditions", href: "/terms" },
   { title: "Privacy Policy", href: "/privacy" },
   { title: "FAQs", href: "/faqs" },
-  { title: "Help", href: "/help" },
 ];
 export const categoriesData = [
+  { title: "Hair Products", href: "hair-products" },
   { title: "Mobiles", href: "mobiles" },
   { title: "Appliances", href: "appliances" },
   { title: "Smartphones", href: "smartphones" },
@@ -22,9 +22,10 @@ export const categoriesData = [
   { title: "Kitchen Appliances", href: "kitchen-appliances" },
   { title: "gadget accessories", href: "gadget-accessories" },
 ];
+
 export const productType = [
-  { title: "Gadget", value: "gadget" },
-  { title: "Appliances", value: "appliances" },
-  { title: "Refrigerators", value: "refrigerators" },
+  { title: "Wigs", value: "wigs" },
+  { title: "Products", value: "products" },
+  { title: "Tools", value: "tools" },
   { title: "Others", value: "others" },
 ];
