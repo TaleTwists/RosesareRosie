@@ -2,11 +2,12 @@
 import { Product } from "@/sanity.types";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
-import { ShoppingBag } from "lucide-react";
 import useStore from "@/store";
 import toast from "react-hot-toast";
 import PriceFormatter from "./PriceFormatter";
 import QuantityButtons from "./QuantityButtons";
+import Image from "next/image";
+import emptyCart from "@/public/emptyCart.png";
 
 interface Props {
   product: Product;
@@ -52,7 +53,14 @@ const AddToCartButton = ({ product, className }: Props) => {
             className
           )}
         >
-          <ShoppingBag /> {isOutOfStock ? "Out of Stock" : "Add to Cart"}
+          <Image
+            src={emptyCart}
+            alt="Empty shopping cart"
+            layout="fill"
+            objectFit="contain"
+            className="drop-shadow-lg"
+          />
+          {isOutOfStock ? "Out of Stock" : "Add to Cart"}
         </Button>
       )}
     </div>

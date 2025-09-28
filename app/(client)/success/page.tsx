@@ -6,6 +6,7 @@ import { Suspense, useEffect } from "react";
 import { motion } from "motion/react";
 import { Check, Home, Package, ShoppingBag } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const SuccessPageContent = () => {
   const { resetCart } = useStore();
@@ -70,7 +71,14 @@ const SuccessPageContent = () => {
             href="/"
             className="flex items-center justify-center px-4 py-3 font-semibold bg-shop_dark_green text-white rounded-lg hover:bg-gray-800 transition-all duration-300 shadow-md"
           >
-            <ShoppingBag className="w-5 h-5 mr-2" />
+            {/* <ShoppingBag className="w-5 h-5 mr-2" /> */}
+              <Image 
+            src="/cart.svg" 
+            alt="Cart icon" 
+            width={20} 
+            height={20} 
+            className="mr-2"
+          />
             Shop
           </Link>
         </div>

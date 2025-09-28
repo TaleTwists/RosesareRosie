@@ -30,10 +30,11 @@ const Header = async () => {
         </div>
         <HeaderMenu />
         <div className="w-auto md:w-1/3 flex items-center justify-end gap-5">
-          <SearchBar />
-          <CartIcon />
+        <div className="sm:hidden">
+           <CartIcon />
           <FavoriteButton />
-
+        </div>
+          <SearchBar />         
           {user && (
             <Link
               href={"/orders"}
@@ -45,13 +46,15 @@ const Header = async () => {
               </span>
             </Link>
           )}
-
-          <ClerkLoaded>
+            <div className="sm:hidden">
+              <ClerkLoaded>
             <SignedIn>
               <UserButton />
             </SignedIn>
             {!user && <SignIn />}
           </ClerkLoaded>
+            </div>
+          
         </div>
       </Container>
     </header>

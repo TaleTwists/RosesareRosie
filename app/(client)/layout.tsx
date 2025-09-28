@@ -6,6 +6,7 @@ import {
   ClerkProvider,
 } from '@clerk/nextjs';
 import { SanityLive } from "@/sanity/lib/live";
+import BottomNavigation from "@/components/BottomNavigation";
 
 export const metadata: Metadata = {
   title: "Rosie Beauty",
@@ -27,6 +28,7 @@ export default function RootLayout({
         </main>
         <Footer />
         </div>
+        <BottomNavigation className="block lg:hidden" />
    </ClerkProvider>
   );
 }

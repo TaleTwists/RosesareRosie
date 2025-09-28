@@ -5,8 +5,8 @@ import { Label } from "../ui/label";
 
 
 const priceArray = [
-  { title: "Under ₦100,000", value: "0-100,000" },
-  { title: "₦100,000 - ₦200,000", value: "100,000-200,000" },
+  { title: "Under ₦100,000", value: "0-10,000" },
+  { title: "₦10,000 - ₦30,000", value: "10,000-30,000" },
   { title: "₦200,000 - ₦300,000", value: "200,000-300,000" },
   { title: "₦300,000 - ₦500,000", value: "300,000-500,000" },
   { title: "Over ₦500,000", value: "500,000-10000" },
