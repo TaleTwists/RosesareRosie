@@ -229,7 +229,7 @@ export type Product = {
     [internalGroqTypeReferenceTo]?: "brand";
   };
   status?: "new" | "hot" | "sale";
-  variant?: "gadget" | "appliances" | "refrigerators" | "others";
+  variant?: "wigs" | "products" | "tools" | "others";
   isFeatured?: boolean;
 };
 
@@ -558,7 +558,7 @@ export type DEAL_PRODUCTSResult = Array<{
     [internalGroqTypeReferenceTo]?: "brand";
   };
   status?: "hot" | "new" | "sale";
-  variant?: "appliances" | "gadget" | "others" | "refrigerators";
+  variant?: "others" | "products" | "tools" | "wigs";
   isFeatured?: boolean;
 }>;
 // Variable: PRODUCT_BY_SLUG_QUERY
@@ -602,7 +602,7 @@ export type PRODUCT_BY_SLUG_QUERYResult = {
     [internalGroqTypeReferenceTo]?: "brand";
   };
   status?: "hot" | "new" | "sale";
-  variant?: "appliances" | "gadget" | "others" | "refrigerators";
+  variant?: "others" | "products" | "tools" | "wigs";
   isFeatured?: boolean;
 } | null;
 // Variable: BRAND_QUERY
@@ -670,7 +670,7 @@ export type MY_ORDERS_QUERYResult = Array<{
         [internalGroqTypeReferenceTo]?: "brand";
       };
       status?: "hot" | "new" | "sale";
-      variant?: "appliances" | "gadget" | "others" | "refrigerators";
+      variant?: "others" | "products" | "tools" | "wigs";
       isFeatured?: boolean;
     } | null;
     quantity?: number;
@@ -882,7 +882,7 @@ export type OTHERS_BLOG_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type=='brand'] | order(name asc)": BRANDS_QUERYResult;
+    "*[_type=='brand'] | order(name asc) ": BRANDS_QUERYResult;
     " *[_type == 'blog' && isLatest == true]|order(name asc){\n      ...,\n      blogcategories[]->{\n      title\n    }\n    }": LATEST_BLOG_QUERYResult;
     "*[_type == 'product' && status == 'hot'] | order(name asc){\n    ...,\"categories\": categories[]->title\n  }": DEAL_PRODUCTSResult;
     "*[_type == \"product\" && slug.current == $slug] | order(name asc) [0]": PRODUCT_BY_SLUG_QUERYResult;

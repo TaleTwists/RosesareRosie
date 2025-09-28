@@ -9,7 +9,7 @@ const Logo = ({className, spanDesign}: {className?: string, spanDesign?: string}
         Rosie
         <span className= {cn(
             'text-shop_light_green hoverEffect hover:text-shop_dark_green', spanDesign
-        )}>Beauty</span>
+        )}>Wig</span>
        </h2>
     </Link>
   )

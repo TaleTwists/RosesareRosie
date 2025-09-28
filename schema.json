@@ -1426,15 +1426,15 @@
           "of": [
             {
               "type": "string",
-              "value": "gadget"
+              "value": "wigs"
             },
             {
               "type": "string",
-              "value": "appliances"
+              "value": "products"
             },
             {
               "type": "string",
-              "value": "refrigerators"
+              "value": "tools"
             },
             {
               "type": "string",
