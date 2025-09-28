@@ -3,7 +3,6 @@ import useStore from "@/store";
 import { ShoppingBag } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import Image from "next/image";
 
 const CartIcon = () => {
   const { items } = useStore();
