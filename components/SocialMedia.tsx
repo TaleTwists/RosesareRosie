@@ -16,21 +16,21 @@ interface Props {
 const socialLink = [
      {
         title: "Instagram",
-        href: "/",
+        href: "/https://www.instagram.com/rosie_wig?igsh=MXE0c3dncjZpejFhbw%3D%3D&utm_source=qr",
         icon: <Instagram className='w-5 h-5' />
     }, 
     {
         title: "Facebook",
-        href: "/",
+        href: "/https://www.facebook.com/rosie.wig.9",
         icon: <Facebook className='w-5 h-5' />
     },            
      {
-        title: "0708 283 1875",
+        title: "0708 283 1875, 0806 689 0131",
         href: "/",
         icon: <MessageCircle className='w-5 h-5' />
     }, 
      {
-        title: "glambyrosiewig@gmail.com",
+        title: "info.rosiewig@gmail.com",
         href: "/",
         icon: <Mail className='w-5 h-5' />
     },

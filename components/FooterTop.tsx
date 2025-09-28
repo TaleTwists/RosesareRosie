@@ -17,7 +17,7 @@ const data: ContactItemData[] = [
   },
   {
     title: "Call Us",
-    subtitle: "0708 283 1875",
+    subtitle: "0708 283 1875, 0806 689 0131 ",
     icon: (
       <Phone className="h-6 w-6 text-shop_light_green group-hover:text-primary transition-colors" />
     ),
@@ -31,7 +31,7 @@ const data: ContactItemData[] = [
   },
   {
     title: "Email Us",
-    subtitle: "Glambyrosiewig@gmail.com",
+    subtitle: "info.rosiewig@gmail.com",
     icon: (
       <Mail className="h-6 w-6 text-shop_light_green group-hover:text-primary transition-colors" />
     ),

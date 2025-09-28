@@ -27,7 +27,6 @@ const HeaderMenu = () => {
             }
             
           />
-          lllll
           <span
             className={
               `absolute -bottom-0.5 right-1/2 w-0 h-0.5 bg-shop_light_green group-hover:w-1/2 hoverEffect group-hover:right-0 ${
