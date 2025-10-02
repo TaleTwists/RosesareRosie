@@ -10,7 +10,7 @@ const extraData = [
   {
     title: "Free Delivery",
     description: "Free shipping over ₦100",
-    icon: <Truck size={45} />,
+    icon: <Truck size={45} />, 
   },
   {
     title: "Free Return",
@@ -34,7 +34,7 @@ const ShopByBrands = async () => {
   return (
     <div className="mb-10 lg:mb-20 bg-shop_light_bg p-5 lg:p-7 rounded-md">
       <div className="flex items-center gap-5 justify-between mb-10">
-        <Title>Shop By Brands</Title>
+        <Title>Talk to us</Title>
         <Link
           href={"/shop"}
           className="text-sm font-semibold tracking-wide hover:text-shop_btn_dark_green hoverEffect"

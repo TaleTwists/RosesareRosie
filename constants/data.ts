@@ -15,13 +15,12 @@ export const quickLinksData = [
 ];
 export const categoriesData = [
   { title: "Hair Products", href: "hair-products" },
-  { title: "Mobiles", href: "mobiles" },
-  { title: "Appliances", href: "appliances" },
-  { title: "Smartphones", href: "smartphones" },
-  { title: "Air Conditioners", href: "air-conditioners" },
-  { title: "Washing Machine", href: "washing-machine" },
-  { title: "Kitchen Appliances", href: "kitchen-appliances" },
-  { title: "gadget accessories", href: "gadget-accessories" },
+  { title: "Hairs", href: "hairs" },
+  { title: "Hair Tools", href: "hair-tools" },
+   { title: "Hair Appliances", href: "hair-appliances" },
+    { title: "Skin Care", href: "skin-care" },
+  { title: "Dummies", href: "dummies" },
+ 
 ];
 
 export const productType = [

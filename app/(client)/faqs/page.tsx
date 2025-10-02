@@ -10,7 +10,7 @@ export function FaqPage() {
   return (
     <Container className="flex">
       <div className="left-side bg-amber-500 text-white">
-        <h1>Got a Question?</h1>
+        <h1>Question? Look here</h1>
       </div>
       <Accordion
       type="single"
