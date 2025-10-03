@@ -66,8 +66,8 @@ const ContactPage: React.FC = () => {
               CONTACT US
             </p>
             <h2 className="text-3xl font-bold mb-8">
-              Get Your{" "}
-              <span className="text-yellow-600 italic">We Love to hear from you!</span>
+              We Love to{" "}
+              <span className="text-yellow-600 italic"> hear from you!</span>
             </h2>
             
 

@@ -17,7 +17,7 @@ const Home = async () => {
       <HomeBanner />
       <ProductGrid />
       <HomeCategories categories = {categories}/>
-      <ShopByBrands />
+      {/* <ShopByBrands /> */}
       <LatestBlog />
       <ContactPage />
       {/* <FaqPage /> */}
