@@ -9,7 +9,7 @@ import {
   Send,
   Facebook,
   Instagram,
-  MessageCircle
+  MessageCircle,
 } from "lucide-react";
 import Container from "@/components/Container";
 
@@ -68,7 +68,6 @@ const ContactPage: React.FC = () => {
               We Love to{" "}
               <span className="text-yellow-600 italic"> hear from you!</span>
             </h2>
-            
 
             <div className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
@@ -182,39 +181,56 @@ const ContactPage: React.FC = () => {
                 </div>
               </div>
             </div>
-           {/* Stay Connected */}
+            {/* Stay Connected */}
             <div>
               <h3 className="text-2xl font-bold mb-4">Stay Connected</h3>
               <div className="flex gap-3">
-                <a 
+                <a
                   href="https://www.facebook.com/rosie.wig.9"
-                  target="_blank" 
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="bg-yellow-500 hover:bg-yellow-600 p-3 rounded-full transition-colors inline-block"
                 >
                   <Facebook className="h-5 w-5 text-gray-900" />
                 </a>
-                <a 
-                  href="https://wa.link/mo1b1i" 
-                  target="_blank" 
+                <a
+                  href="https://wa.link/mo1b1i"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="bg-yellow-500 hover:bg-yellow-600 p-3 rounded-full transition-colors inline-block"
                 >
                   <MessageCircle className="h-5 w-5 text-gray-900" />
                 </a>
-                <a 
+                <a
                   href="https://www.instagram.com/rosie_wig?igsh=MXE0c3dncjZpejFhbw%3D%3D&utm_source=qr"
-                  target="_blank" 
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="bg-yellow-500 hover:bg-yellow-600 p-3 rounded-full transition-colors inline-block"
                 >
                   <Instagram className="h-5 w-5 text-gray-900" />
                 </a>
               </div>
-            </div>           
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Map Embed */}
+    <div className="map-container">
+ <div className="py-16 md:py-0 rounded-lg px-10 lg:px-24">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.4120561736663!2d7.905549974191914!3d5.036740638654441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x105d57cf87833099%3A0xba1fed027884b483!2sGlam%20by%20Rosie%20Wig!5e0!3m2!1sen!2sng!4v1759498333662!5m2!1sen!2sng" 
+    width={600} 
+    height={450} 
+    style={{ border: 0 }} 
+    allowFullScreen={true}
+    loading="lazy" 
+    referrerPolicy="no-referrer-when-downgrade"
+    title="Glam by Rosie Wig Location"
+    className="rounded-lg"
+  />
+</div>
+</div>
     </Container>
   );
 };
