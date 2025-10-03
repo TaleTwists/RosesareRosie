@@ -19,6 +19,7 @@ export const categoriesData = [
   { title: "Hair Tools", href: "hair-tools" },
    { title: "Hair Appliances", href: "hair-appliances" },
     { title: "Skin Care", href: "skin-care" },
+    { title: "Revamping", href: "revamping" },
   { title: "Dummies", href: "dummies" },
  
 ];

@@ -8,11 +8,10 @@ import {
   Phone,
   Send,
   Facebook,
-  Twitter,
   Instagram,
-  Youtube,
-  Linkedin,
+  MessageCircle
 } from "lucide-react";
+import Container from "@/components/Container";
 
 interface FormData {
   name: string;
@@ -47,7 +46,7 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <Container>
       {/* Header */}
       {/* <div className="bg-emerald-800 text-white py-20 text-center">
         <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
@@ -183,32 +182,40 @@ const ContactPage: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            {/* Stay Connected */}
+           {/* Stay Connected */}
             <div>
               <h3 className="text-2xl font-bold mb-4">Stay Connected</h3>
               <div className="flex gap-3">
-                <button className="bg-yellow-500 hover:bg-yellow-600 p-3 rounded-full transition-colors">
+                <a 
+                  href="https://www.facebook.com/rosie.wig.9"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-yellow-500 hover:bg-yellow-600 p-3 rounded-full transition-colors inline-block"
+                >
                   <Facebook className="h-5 w-5 text-gray-900" />
-                </button>
-                <button className="bg-yellow-500 hover:bg-yellow-600 p-3 rounded-full transition-colors">
-                  <Twitter className="h-5 w-5 text-gray-900" />
-                </button>
-                <button className="bg-yellow-500 hover:bg-yellow-600 p-3 rounded-full transition-colors">
+                </a>
+                <a 
+                  href="" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-yellow-500 hover:bg-yellow-600 p-3 rounded-full transition-colors inline-block"
+                >
+                  <MessageCircle className="h-5 w-5 text-gray-900" />
+                </a>
+                <a 
+                  href="https://www.instagram.com/rosie_wig?igsh=MXE0c3dncjZpejFhbw%3D%3D&utm_source=qr"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-yellow-500 hover:bg-yellow-600 p-3 rounded-full transition-colors inline-block"
+                >
                   <Instagram className="h-5 w-5 text-gray-900" />
-                </button>
-                <button className="bg-yellow-500 hover:bg-yellow-600 p-3 rounded-full transition-colors">
-                  <Linkedin className="h-5 w-5 text-gray-900" />
-                </button>
-                <button className="bg-yellow-500 hover:bg-yellow-600 p-3 rounded-full transition-colors">
-                  <Youtube className="h-5 w-5 text-gray-900" />
-                </button>
+                </a>
               </div>
-            </div>
+            </div>           
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
