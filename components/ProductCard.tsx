@@ -68,14 +68,14 @@ const ProductCard = ({ product }: { product: Product }) => {
           <p className="text-lightText text-xs tracking-wide">5 Reviews</p>
         </div>
 
-        <div className="flex items-center gap-2.5">
+        {/* <div className="flex items-center gap-2.5">
           <p className="font-medium">In Stock</p>
           <p
             className={`${product?.stock === 0 ? "text-red-600" : "text-shop_dark_green/80 font-semibold"}`}
           >
             {(product?.stock as number) > 0 ? product?.stock : "unavailable"}
           </p>
-        </div>
+        </div> */}
 
         <PriceView
           price={product?.price}

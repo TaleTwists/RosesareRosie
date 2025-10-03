@@ -195,7 +195,7 @@ const ContactPage: React.FC = () => {
                   <Facebook className="h-5 w-5 text-gray-900" />
                 </a>
                 <a 
-                  href="" 
+                  href="https://wa.link/mo1b1i" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-yellow-500 hover:bg-yellow-600 p-3 rounded-full transition-colors inline-block"
