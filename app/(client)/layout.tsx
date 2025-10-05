@@ -7,6 +7,7 @@ import {
 } from '@clerk/nextjs';
 import { SanityLive } from "@/sanity/lib/live";
 import BottomNavigation from "@/components/BottomNavigation";
+import LiveChat from "@/components/LiveChat";
 
 export const metadata: Metadata = {
   title: "Rosie Beauty",
@@ -25,8 +26,10 @@ export default function RootLayout({
           <Header />
         <main className="flex-1">          
           {children}
+         
         </main>
         <Footer />
+         <LiveChat />
         </div>
         <BottomNavigation className="block lg:hidden" />
    </ClerkProvider>

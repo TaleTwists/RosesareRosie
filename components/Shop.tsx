@@ -5,7 +5,7 @@ import Container from "./Container";
 import Title from "./Title";
 import CategoryList from "./shop/CategoryList";
 import { useSearchParams } from "next/navigation";
-import BrandList from "./shop/BrandList";
+// import BrandList from "./shop/BrandList";
 import PriceList from "./shop/PriceList";
 import { client } from "@/sanity/lib/client";
 import { Loader2 } from "lucide-react";
@@ -70,7 +70,7 @@ const Shop = ({ categories, brands }: Props) => {
       <Container className="mt-5">
         <div className="sticky top-0 z-10 mb-5">
           <div className="flex items-center justify-between">
-            <Title className="text-lg uppercase tracking-wide">
+            <Title className="text-lg uppercase tracking-wide text-shop_dark_green">
               Match Products to your needs
             </Title>
             {(selectedCategory !== null ||
@@ -96,11 +96,11 @@ const Shop = ({ categories, brands }: Props) => {
               selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
             />
-            <BrandList
+            {/* <BrandList
               brands={brands}
               setSelectedBrand={setSelectedBrand}
               selectedBrand={selectedBrand}
-            />
+            /> */}
             <PriceList
               setSelectedPrice={setSelectedPrice}
               selectedPrice={selectedPrice}

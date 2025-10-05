@@ -140,7 +140,7 @@ const ContactPage: React.FC = () => {
           </div>
 
           {/* Right Column - Contact Info */}
-          <div className="bg-emerald-800 text-white rounded-3xl p-8 space-y-8">
+          <div className="bg-emerald-800 text-white p-8 space-y-8">
             {/* Address */}
             <div>
               <h3 className="text-2xl font-bold mb-4">Address</h3>
@@ -159,7 +159,7 @@ const ContactPage: React.FC = () => {
                 <div className="flex items-center gap-3">
                   <Phone className="h-5 w-5 flex-shrink-0" />
                   <span className="text-emerald-100">
-                    0708 283 1875, 0806 689 0131
+                    07082831875, 08066890131
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
@@ -216,11 +216,11 @@ const ContactPage: React.FC = () => {
       </div>
 
       {/* Map Embed */}
-    <div className="map-container">
+    {/* <div className="map-container">
  <div className="py-16 md:py-0 rounded-lg px-10 lg:px-24">
   <iframe 
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.4120561736663!2d7.905549974191914!3d5.036740638654441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x105d57cf87833099%3A0xba1fed027884b483!2sGlam%20by%20Rosie%20Wig!5e0!3m2!1sen!2sng!4v1759498333662!5m2!1sen!2sng" 
-    width={600} 
+    width={100} 
     height={450} 
     style={{ border: 0 }} 
     allowFullScreen={true}
@@ -230,7 +230,7 @@ const ContactPage: React.FC = () => {
     className="rounded-lg"
   />
 </div>
-</div>
+</div> */}
     </Container>
   );
 };

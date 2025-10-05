@@ -146,3 +146,45 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Hide on large screens by default */
+.whatsapp-link{
+  display: none;
+}
+
+/* Show only on mobile screens (768px and below) */
+@media only screen and (max-width: 768px) {
+  .whatsapp-link{
+    display: block;
+    position: fixed;
+    bottom: 90px; /* Changed from -80px to show immediately */
+    right: 20px;
+    z-index: 50;
+    transition: bottom 0.3s ease-in-out;
+  }
+p
+  .whatsapp-link.visible{
+    bottom: 90px;
+  }
+}
+
+/* For smaller mobile screens */
+@media only screen and (max-width: 500px) {
+  .whatsapp-link{
+    bottom: 80px; /* Show immediately on small screens too */
+  }
+
+  .whatsapp-link.visible{
+    bottom: 80px;
+  }
+}
+
+.whatsapp-icon{
+  width: 55px;
+  height: 55px;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-icon:hover{
+  transform: scale(1.2);
+}

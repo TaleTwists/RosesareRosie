@@ -176,7 +176,7 @@ const CartPage = () => {
                                             "Product deleted successfully!"
                                           );
                                         }}
-                                        className="w-4 h-4 md:w-5 md:h-5 mr-1 text-white hover:text-red-600 hoverEffect"
+                                        className="w-4 h-4 md:w-5 md:h-5 mr-1 text-gray-500 hover:text-red-600 hoverEffect"
                                       />
                                     </TooltipTrigger>
                                     <TooltipContent className="font-bold bg-red-600">
@@ -232,7 +232,7 @@ const CartPage = () => {
                           />
                         </div>
                         <Button
-                          className=" w-full bg-shop_dark_green/80 text-lightBg shadow-none  border-shop_dark_green/80 hover:bg-shop_dark_green hover:border-shop_dark_green hoverEffect text-white rounded-full font-semibold tracking-wide hoverEffect"
+                           className="w-full mt-4 bg-shop_dark_green text-white tracking-wide border-none hoverEffect"
                           size="lg"
                           disabled={loading}
                           onClick={handleCheckout}
@@ -277,7 +277,7 @@ const CartPage = () => {
                                 </div>
                               ))}
                             </RadioGroup>
-                            <Button variant="outline" className="w-full mt-4 text-shop_dark_green font-semibold tracking-wide">
+                            <Button  className="w-full mt-4 bg-shop_dark_green text-white tracking-wide border-none">
                               Add New Address
                             </Button>
                           </CardContent>
@@ -310,7 +310,7 @@ const CartPage = () => {
                         />
                       </div>
                       <Button
-                        className="w-full rounded-full font-semibold tracking-wide hoverEffect"
+                        className="w-full mt-4 bg-shop_dark_green text-white tracking-wide border-none hoverEffect"
                         size="lg"
                         disabled={loading}
                         onClick={handleCheckout}

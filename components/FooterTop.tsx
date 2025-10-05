@@ -1,4 +1,6 @@
+'use client'
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 interface ContactItemData {
@@ -47,8 +49,15 @@ const data: ContactItemData[] = [
 ];
 
 const FooterTop = () => {
+  const pathname = usePathname();
+  
+  // Don't render on homepage
+  if (pathname === '/') {
+    return null;
+  }
+
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 border-b">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-16 p-2 shadow-sm hover:shadow-shop_light_green/20 py-5">
       {data?.map((item, index) => {
         const content = (
           <div className="flex items-center gap-3 group hover:bg-gray-50 p-4 transition-colors hoverEffect">
