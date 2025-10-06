@@ -19,6 +19,19 @@ import Link from "next/link";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
+// Define Product interface
+interface Product {
+  _id: string;
+  name: string;
+  slug: {
+    current: string;
+  };
+  images: unknown[]; // Replace with proper Sanity image type if available
+  variant: string;
+  status: string;
+  price: number;
+}
+
 const FavoritesPage = () => {
   const { favoriteProduct, removeFromFavorite, resetFavorite, addItem } =
     useStore();
@@ -35,7 +48,7 @@ const FavoritesPage = () => {
     }
   };
 
-  const handleAddToCart = (product: any) => {
+  const handleAddToCart = (product: Product) => {
     addItem(product);
     toast.success("Product added to cart!");
   };
@@ -43,7 +56,7 @@ const FavoritesPage = () => {
   const handleAddAllToCart = () => {
     setLoading(true);
     try {
-      favoriteProduct.forEach((product) => {
+      favoriteProduct.forEach((product: Product) => {
         addItem(product);
       });
       toast.success("All favorites added to cart!");
@@ -64,11 +77,15 @@ const FavoritesPage = () => {
                 <div className="w-8 h-8 bg-shop_dark_green rounded flex items-center justify-center">
                   <Heart className="w-5 h-5 text-white fill-white" />
                 </div>
-                <h1 className="text-3xl font-bold text-gray-900">My Favorites</h1>
+                <h1 className="text-3xl font-bold text-shop_light_green">My Favor
+                    <span className="text-shop_dark_green">
+                        ites
+                    </span>
+                </h1>
               </div>
 
               <div className="space-y-4">
-                {favoriteProduct.map((product) => (
+                {favoriteProduct.map((product: Product) => (
                   <div
                     key={product?._id}
                     className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"

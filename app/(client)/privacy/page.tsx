@@ -10,7 +10,7 @@ const PrivacyPage = () => {
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="mb-16">
-          <h1 className="text-5xl font-bold mb-3 tracking-wide">PRIVACY POLICY</h1>
+          <Title className="text-5xl font-bold mb-3 tracking-wide">PRIVACY POLICY</Title>
           <p className="text-sm text-gray-400 tracking-wider">STAY INFORMED, STAY PROTECTED</p>
         </div>
 

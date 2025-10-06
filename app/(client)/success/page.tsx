@@ -4,7 +4,7 @@ import useStore from "@/store";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect } from "react";
 import { motion } from "motion/react";
-import { Check, Home, Package, ShoppingBag } from "lucide-react";
+import { Check, Home, Package } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
