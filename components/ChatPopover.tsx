@@ -13,12 +13,12 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
-import { MessageSquare, Phone, Mail, MapPin, Clock, Facebook, MessageCircle, Instagram } from "lucide-react"
+import { Phone, Mail, MapPin, Clock, Facebook, MessageCircle, Instagram } from "lucide-react"
 import Image from "next/image"
 import { useForm, ValidationError } from '@formspree/react'
 
 export function ChatPopover() {
-  const [state, handleSubmit] = useForm("xvgwbkqz")
+  const [state, handleSubmit] = useForm("xovkndvr")
 
   const handlePhoneInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/\D/g, '')
@@ -84,7 +84,7 @@ export function ChatPopover() {
                       className="text-red-500 text-xs"
                     />
                   </div>
-                  <div className="grid gap-2">
+                  <div className="grid gap-2 pt-2">
                     <Label htmlFor="phone">Phone Number</Label>
                     <Input
                       id="phone"
