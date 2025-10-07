@@ -85,7 +85,7 @@ const Form = () => {
                   onChange={handleChange}
                   placeholder="Enter here..."
                   rows={6}
-                  className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-emerald-600 resize-none border-shop_light_green border-2"
+                  className="w-full px-4 py-3 bg-gray-100rounded focus:outline-none focus:ring-2 focus:ring-emerald-600 resize-none border-shop_light_green border-2"
                   required
                 ></textarea>
               </div>

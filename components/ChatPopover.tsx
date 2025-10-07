@@ -55,7 +55,7 @@ export function ChatPopover() {
                 <div className="space-y-2 text-center py-4">
                   <h4 className="leading-none font-medium">Thanks for your message!</h4>
                   <p className="text-muted-foreground text-sm">
-                    We'll get back to you as soon as possible.
+                    We&apos;ll get back to you as soon as possible.
                   </p>
                 </div>
               </div>
@@ -64,7 +64,7 @@ export function ChatPopover() {
                 <div className="space-y-2">
                   <h4 className="leading-none font-medium">Chat with us</h4>
                   <p className="text-muted-foreground text-sm">
-                    Send us a message and we'll get back to you.
+                    Send us a message and we&apos;ll get back to you.
                   </p>
                 </div>
                 <div className="grid gap-2">
