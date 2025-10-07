@@ -51,8 +51,8 @@ const data: ContactItemData[] = [
 const FooterTop = () => {
   const pathname = usePathname();
   
-  // Don't render on homepage
-  if (pathname === '/') {
+  // Don't render on homepage and contact page
+ if (pathname === '/' || pathname === '/contact') {
     return null;
   }
 

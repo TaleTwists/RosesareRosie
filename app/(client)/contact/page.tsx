@@ -1,50 +1,19 @@
 "use client";
 
-import React, { useState, FormEvent, ChangeEvent } from "react";
+import React from "react";
 import {
   Clock,
   Mail,
   MapPin,
   Phone,
-  Send,
   Facebook,
   Instagram,
   MessageCircle,
 } from "lucide-react";
 import Container from "@/components/Container";
-
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-}
+import Form from "@/components/Form";
 
 const ContactPage: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleSubmit = (
-    e: FormEvent<HTMLFormElement | HTMLButtonElement>
-  ): void => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Message sent successfully!");
-  };
-
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ): void => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   return (
     <Container>
       {/* Header */}
@@ -60,84 +29,7 @@ const ContactPage: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 gap-12">
           {/* Left Column - Form */}
-          <div>
-            <p className="text-gray-600 uppercase tracking-wider text-sm mb-2">
-              CONTACT US
-            </p>
-            <h2 className="text-3xl font-bold mb-8">
-              We Love to{" "}
-              <span className="text-yellow-600 italic"> hear from you!</span>
-            </h2>
-
-            <div className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Your Name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Ex. John Doe"
-                    className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-emerald-600"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Email <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="example@gmail.com"
-                    className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-emerald-600"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Phone Number <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="Phone Number"
-                  pattern="[0-9\s\-\+\(\)]+"
-                  className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-emerald-600"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Your Message <span className="text-red-500">*</span>
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Enter here..."
-                  rows={6}
-                  className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-emerald-600 resize-none"
-                ></textarea>
-              </div>
-
-              <button
-                type="button"
-                onClick={handleSubmit}
-                className="flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold px-8 py-3 rounded transition-colors"
-              >
-                <Send className="h-5 w-5" />
-                Send Message
-              </button>
-            </div>
-          </div>
+          <Form />
 
           {/* Right Column - Contact Info */}
           <div className="bg-emerald-800 text-white p-8 space-y-8">
@@ -216,7 +108,7 @@ const ContactPage: React.FC = () => {
       </div>
 
       {/* Map Embed */}
-    {/* <div className="map-container">
+      {/* <div className="map-container">
  <div className="py-16 md:py-0 rounded-lg px-10 lg:px-24">
   <iframe 
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.4120561736663!2d7.905549974191914!3d5.036740638654441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x105d57cf87833099%3A0xba1fed027884b483!2sGlam%20by%20Rosie%20Wig!5e0!3m2!1sen!2sng!4v1759498333662!5m2!1sen!2sng" 
