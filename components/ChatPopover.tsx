@@ -13,7 +13,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
-import { MessageSquare, Phone, Mail, MapPin } from "lucide-react"
+import { MessageSquare, Phone, Mail, MapPin, Clock, Facebook, MessageCircle, Instagram } from "lucide-react"
 import Image from "next/image"
 import { useForm, ValidationError } from '@formspree/react'
 
@@ -143,12 +143,28 @@ export function ChatPopover() {
               
               <div className="grid gap-4">
                 <div className="flex items-start gap-3">
+                  <MapPin className="h-5 w-5 text-shop_dark_green mt-0.5" />
+                  <div className="grid gap-1">
+                    <p className="text-sm font-medium">Address</p>
+                    <p className="text-sm text-muted-foreground">
+                      110 Nkemba St, off Abak Road,<br />
+                      Uyo
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-3">
                   <Phone className="h-5 w-5 text-shop_dark_green mt-0.5" />
                   <div className="grid gap-1">
                     <p className="text-sm font-medium">Phone</p>
-                    <a href="tel:+2348012345678" className="text-sm text-muted-foreground hover:text-shop_dark_green">
-                      +234 801 234 5678
-                    </a>
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <a href="tel:+2347082831875" className="block hover:text-shop_dark_green">
+                        07082831875
+                      </a>
+                      <a href="tel:+2348066890131" className="block hover:text-shop_dark_green">
+                        08066890131
+                      </a>
+                    </div>
                   </div>
                 </div>
                 
@@ -156,31 +172,54 @@ export function ChatPopover() {
                   <Mail className="h-5 w-5 text-shop_dark_green mt-0.5" />
                   <div className="grid gap-1">
                     <p className="text-sm font-medium">Email</p>
-                    <a href="mailto:info@yourcompany.com" className="text-sm text-muted-foreground hover:text-shop_dark_green">
-                      info@yourcompany.com
+                    <a href="mailto:info.rosiewig@gmail.com" className="text-sm text-muted-foreground hover:text-shop_dark_green">
+                      info.rosiewig@gmail.com
                     </a>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 text-shop_dark_green mt-0.5" />
+                  <Clock className="h-5 w-5 text-shop_dark_green mt-0.5" />
                   <div className="grid gap-1">
-                    <p className="text-sm font-medium">Address</p>
+                    <p className="text-sm font-medium">Open Time</p>
                     <p className="text-sm text-muted-foreground">
-                      123 Business Street,<br />
-                      Lagos, Nigeria
+                      Mon - Sat: 8:00 AM - 5:00 PM
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-3">
-                  <MessageSquare className="h-5 w-5 text-shop_dark_green mt-0.5" />
                   <div className="grid gap-1">
-                    <p className="text-sm font-medium">Business Hours</p>
-                    <p className="text-sm text-muted-foreground">
-                      Mon - Fri: 9:00 AM - 6:00 PM<br />
-                      Sat: 10:00 AM - 4:00 PM
-                    </p>
+                    <p className="text-sm font-semibold tracking-wide">Stay Connected</p>
+                    <div className="flex gap-4 mt-2">
+                      <a
+                        href="https://www.facebook.com/rosie.wig.9"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-shop_light_green hover:bg-emerald-700 p-2 rounded-full transition-colors inline-flex items-center justify-center"
+                        aria-label="Facebook"
+                      >
+                        <Facebook className="h-4 w-4 text-white" />
+                      </a>
+                      <a
+                        href="https://wa.link/mo1b1i"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-emerald-700 hover:bg-emerald-700 p-2 rounded-full transition-colors inline-flex items-center justify-center"
+                        aria-label="WhatsApp"
+                      >
+                        <MessageCircle className="h-4 w-4 text-white" />
+                      </a>
+                      <a
+                        href="https://www.instagram.com/rosie_wig?igsh=MXE0c3dncjZpejFhbw%3D%3D&utm_source=qr"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-shop_dark_green hover:bg-emerald-700 p-2 rounded-full transition-colors inline-flex items-center justify-center"
+                        aria-label="Instagram"
+                      >
+                        <Instagram className="h-4 w-4 text-white" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

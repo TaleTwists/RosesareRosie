@@ -167,8 +167,8 @@ export function ChatPopover() {
                   <div className="grid gap-1">
                     <p className="text-sm font-medium">Address</p>
                     <p className="text-sm text-muted-foreground">
-                      123 Business Street,<br />
-                      Lagos, Nigeria
+                      110 Nkemba St, off Abak Road,<br />
+                      Uyo
                     </p>
                   </div>
                 </div>
@@ -178,7 +178,7 @@ export function ChatPopover() {
                   <div className="grid gap-1">
                     <p className="text-sm font-medium">Business Hours</p>
                     <p className="text-sm text-muted-foreground">
-                      Mon - Fri: 9:00 AM - 6:00 PM<br />
+                      Mon - Fri: 8:00 AM - 5:00 PM<br />
                       Sat: 10:00 AM - 4:00 PM
                     </p>
                   </div>
