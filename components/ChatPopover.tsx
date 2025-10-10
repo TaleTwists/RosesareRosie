@@ -196,7 +196,7 @@ export function ChatPopover() {
                         href="https://www.facebook.com/rosie.wig.9"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-shop_light_green hover:bg-emerald-700 p-2 rounded-full transition-colors inline-flex items-center justify-center"
+                        className=" bg-emerald-700 hover:bg-emerald-700 p-2 rounded-full transition-colors inline-flex items-center justify-center"
                         aria-label="Facebook"
                       >
                         <Facebook className="h-4 w-4 text-white" />
@@ -205,7 +205,7 @@ export function ChatPopover() {
                         href="https://wa.link/mo1b1i"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-emerald-700 hover:bg-emerald-700 p-2 rounded-full transition-colors inline-flex items-center justify-center"
+                        className="bg-shop_light_green hover:bg-emerald-700 p-2 rounded-full transition-colors inline-flex items-center justify-center"
                         aria-label="WhatsApp"
                       >
                         <MessageCircle className="h-4 w-4 text-white" />

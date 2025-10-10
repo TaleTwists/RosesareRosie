@@ -10,9 +10,10 @@ import BottomNavigation from "@/components/BottomNavigation";
 import LiveChat from "@/components/LiveChat";
 
 export const metadata: Metadata = {
-  title: "Rosie Beauty",
-  description: "Get all your wig needs and accessories ",
+  title: "RosieWig",
+  description: "Get all your wig needs and accessories", 
 };
+
 
 export default function RootLayout({
   children,
@@ -21,17 +22,20 @@ export default function RootLayout({
 }>) {
   return (
    <ClerkProvider>
-    <SanityLive />
+    <html lang="en">
+      <body>
+        <SanityLive />
         <div className="flex flex-col min-h-screen">
           <Header />
-        <main className="flex-1">          
-          {children}
-         
-        </main>
-        <Footer />
-         <LiveChat />
+          <main className="flex-1">          
+            {children}
+          </main>
+          <Footer />
+          <LiveChat />
         </div>
         <BottomNavigation className="block lg:hidden" />
+      </body>
+    </html>
    </ClerkProvider>
   );
 }
