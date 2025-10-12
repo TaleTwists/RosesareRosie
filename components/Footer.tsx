@@ -49,7 +49,7 @@ const Footer = () => {
                   <Link
                     href={`/category/${item?.href}`}
                     className="hover:text-shop_light_green hover:underline decoration-shop_light_green
-                    hoverEffect font-medium"
+                    hoverEffect font-medium text-gray-600"
                   >
                     {item?.title}
                   </Link>

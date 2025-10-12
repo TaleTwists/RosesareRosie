@@ -6,6 +6,8 @@ import React from "react";
 import { getCategories } from "@/sanity/queries";
 import LatestBlog from "@/components/LatestBlog";
 import ContactPage from "./contact/page";
+import SmallCategory from "@/components/SmallCategory";
+
 
 const Home = async () => {
   const categories = await getCategories(6);
@@ -13,6 +15,7 @@ const Home = async () => {
   return (
     <Container className="">
       <HomeBanner />
+      <SmallCategory />
       <ProductGrid />
       <HomeCategories categories = {categories}/>
       <LatestBlog />

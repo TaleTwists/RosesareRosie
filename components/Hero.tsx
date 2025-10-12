@@ -5,7 +5,6 @@ import { ArrowRightIcon } from "lucide-react";
 import afr from "@/public/afr.png";
 import prod from "@/public/prod.png";
 import africana from "@/public/africana.png";
-import { Button } from "./ui/button";
 import Link from "next/link";
 
 interface Card {
