@@ -18,7 +18,7 @@ export default function SmallCategory() {
     <div className="bg-white rounded-xl p-4 max-w-md mx-auto md:hidden block mt-1.5">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-gray-800 scroll-m-20 text-xl font-semibold tracking-tight">Category</h2>
-        <Link href="/shop" className="text-xs text-gray-400 hover:text-gray-600">
+        <Link href="/shop" className="text-sm text-gray-400 hover:text-gray-600">
           See all
         </Link>
       </div>
