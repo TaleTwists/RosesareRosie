@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from "next/image";
 import skincares from '@/public/skincares.png'
-import dryer from '@/public/hair-dryer.svg'
+import dryer from '@/public/dryer.svg'
 import skincare from '@/public/skincare.svg'
 import lotion from '@/public/lotion.svg'
 
