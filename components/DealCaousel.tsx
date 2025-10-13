@@ -3,8 +3,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import ProductCard from "@/components/ProductCard";
 
+// Define your product type
+interface Product {
+  _id: string;
+  // Add other product properties here
+  name?: string;
+  price?: number;
+  image?: string;
+  // ... etc
+}
+
 interface DealCarouselProps {
-  products: any[];
+  products: Product[]; // Now type-safe!
 }
 
 const DealCarousel = ({ products }: DealCarouselProps) => {
@@ -12,17 +22,14 @@ const DealCarousel = ({ products }: DealCarouselProps) => {
   const [isTransitioning, setIsTransitioning] = useState<boolean>(true);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Calculate how many slides we need (showing 2 products per slide on mobile)
   const productsPerSlide = 2;
   const totalSlides = Math.ceil(products.length / productsPerSlide);
 
-  // Create slides by grouping products
-  const slides = Array.from({ length: totalSlides }, (_, i) =>
+  const slides: Product[][] = Array.from({ length: totalSlides }, (_, i) =>
     products.slice(i * productsPerSlide, (i + 1) * productsPerSlide)
   );
 
-  // Duplicate slides for infinite loop effect
-  const extendedSlides = [...slides, ...slides];
+  const extendedSlides: Product[][] = [...slides, ...slides];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -65,14 +72,13 @@ const DealCarousel = ({ products }: DealCarouselProps) => {
           <div key={slideIndex} className="w-full flex-shrink-0">
             <div className="grid grid-cols-2 gap-2">
               {slideProducts.map((product) => (
-                <ProductCard key={product?._id} product={product} />
+                <ProductCard key={product._id} product={product} />
               ))}
             </div>
           </div>
         ))}
       </div>
 
-      {/* Dots indicator */}
       <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex items-center justify-center gap-2">
         {slides.map((_, index) => (
           <div

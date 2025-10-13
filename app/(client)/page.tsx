@@ -16,7 +16,7 @@ const Home = async () => {
     <Container className="">
       <HomeBanner />
       <SmallCategory />
-      <DealMobile />
+      {/* <DealMobile /> */}
       <ProductGrid />
       <HomeCategories categories = {categories}/>
       <LatestBlog />
