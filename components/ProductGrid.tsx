@@ -10,6 +10,7 @@ import Container from "./Container";
 import HomeTabbar from "./HomeTabBar";
 import { productType } from "@/constants/data";
 import { Product } from "@/sanity.types";
+import Link from "next/link";
 
 const ProductGrid = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -38,7 +39,8 @@ const ProductGrid = () => {
   }, [selectedTab]);
 
   return (
-    <Container className="flex flex-col lg:px-0 my-10">
+    <Container className="flex flex-col lg:px-0 my-5 sm:my-1">
+              <h2 className="text-gray-800 scroll-m-20 text-xl font-semibold tracking-tight pb-2.5">Recommended Products</h2>
       <HomeTabbar selectedTab={selectedTab} onTabSelect={setSelectedTab} />
       {loading ? (
         <div className="flex flex-col items-center justify-center py-10 min-h-80 space-y-4 text-center bg-gray-100 rounded-lg w-full mt-10">
@@ -47,7 +49,7 @@ const ProductGrid = () => {
             <span>Product is loading...</span>
           </motion.div>
         </div>
-      ) : products?.length ? (
+      ) : products?.length ? (        
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5 mt-10">
           <>
             {products?.map((product) => (
