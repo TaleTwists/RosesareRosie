@@ -16,7 +16,7 @@ import { useAuth } from "@clerk/nextjs";
 import { Heart, ShoppingBag, Trash } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import toast from "react-hot-toast";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
@@ -33,21 +33,21 @@ interface Product {
   price: number;
 }
 
-// Define the store hook return type
+// Define the store interface for type safety
 interface StoreState {
   favoriteProduct: Product[];
-  removeFromFavorite: (id: string) => void;
+  removeFromFavorite: (productId: string) => void;
   resetFavorite: () => void;
   addItem: (product: Product) => void;
 }
 
-const Wishlist = () => {
+const FavoritesPage = (): JSX.Element => {
   const { favoriteProduct, removeFromFavorite, resetFavorite, addItem } =
     useStore() as StoreState;
   const { isSignedIn } = useAuth();
   const [loading, setLoading] = useState<boolean>(false);
 
-  const handleResetFavorites = (): void => {
+  const handleResetFavorites = useCallback((): void => {
     const confirmed = window.confirm(
       "Are you sure you want to clear all favorites?"
     );
@@ -55,14 +55,19 @@ const Wishlist = () => {
       resetFavorite();
       toast.success("Favorites cleared successfully!");
     }
-  };
+  }, [resetFavorite]);
 
-  const handleAddToCart = (product: Product): void => {
-    addItem(product);
-    toast.success("Product added to cart!");
-  };
+  const handleAddToCart = useCallback((product: Product): void => {
+    try {
+      addItem(product);
+      toast.success("Product added to cart!");
+    } catch (error) {
+      console.error("Failed to add item to cart:", error);
+      toast.error("Failed to add item to cart");
+    }
+  }, [addItem]);
 
-  const handleAddAllToCart = (): void => {
+  const handleAddAllToCart = useCallback((): void => {
     setLoading(true);
     try {
       favoriteProduct.forEach((product: Product) => {
@@ -75,6 +80,21 @@ const Wishlist = () => {
     } finally {
       setLoading(false);
     }
+  }, [favoriteProduct, addItem]);
+
+  const handleRemoveFromFavorite = useCallback((productId: string, productName: string): void => {
+    try {
+      removeFromFavorite(productId);
+      toast.success(`${productName} removed from favorites!`);
+    } catch (error) {
+      console.error("Failed to remove from favorites:", error);
+      toast.error("Failed to remove from favorites");
+    }
+  }, [removeFromFavorite]);
+
+  // Type guard to check if product has valid images
+  const hasValidImages = (product: Product): boolean => {
+    return Boolean(product.images && Array.isArray(product.images) && product.images.length > 0);
   };
 
   return (
@@ -103,7 +123,7 @@ const Wishlist = () => {
                   >
                     <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
                       {/* Product Image */}
-                      {product.images && product.images.length > 0 && (
+                      {hasValidImages(product) && (
                         <Link
                           href={`/product/${product.slug.current}`}
                           className="flex-shrink-0 border border-gray-200 rounded-lg overflow-hidden bg-gray-50 group w-full sm:w-auto"
@@ -157,12 +177,10 @@ const Wishlist = () => {
                           {/* Action Buttons - Mobile */}
                           <div className="flex sm:hidden items-center gap-2 mt-3">
                             <button
-                              onClick={() => {
-                                removeFromFavorite(product._id);
-                                toast.success("Removed from favorites!");
-                              }}
+                              onClick={() => handleRemoveFromFavorite(product._id, product.name)}
                               className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg bg-white border border-gray-300 hover:bg-red-50 hover:border-red-300 transition-colors text-sm"
-                              aria-label="Remove from favorites"
+                              aria-label={`Remove ${product.name} from favorites`}
+                              type="button"
                             >
                               <Trash className="w-4 h-4 text-gray-600" />
                               <span className="text-gray-700">Remove</span>
@@ -171,7 +189,8 @@ const Wishlist = () => {
                             <button
                               onClick={() => handleAddToCart(product)}
                               className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg bg-shop_dark_green hover:bg-shop_dark_green/90 transition-colors text-sm"
-                              aria-label="Add to cart"
+                              aria-label={`Add ${product.name} to cart`}
+                              type="button"
                             >
                               <ShoppingBag className="w-4 h-4 text-white" />
                               <span className="text-white">Add to Cart</span>
@@ -191,42 +210,25 @@ const Wishlist = () => {
 
                           {/* Action Buttons - Desktop */}
                           <div className="flex items-center gap-2">
-                            <TooltipProvider>
-                              <Tooltip>
-                                <TooltipTrigger asChild>
-                                  <button
-                                    onClick={() => {
-                                      removeFromFavorite(product._id);
-                                      toast.success("Removed from favorites!");
-                                    }}
-                                    className="w-9 h-9 flex items-center justify-center rounded-full bg-white border border-gray-300 hover:bg-red-50 hover:border-red-300 transition-colors"
-                                    aria-label="Remove from favorites"
-                                  >
-                                    <Trash className="w-4 h-4 text-gray-600 hover:text-red-600" />
-                                  </button>
-                                </TooltipTrigger>
-                                <TooltipContent className="bg-gray-900">
-                                  Remove from favorites
-                                </TooltipContent>
-                              </Tooltip>
-                            </TooltipProvider>
+                            <button
+                              onClick={() => handleRemoveFromFavorite(product._id, product.name)}
+                              className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-gray-300 hover:bg-red-50 hover:border-red-300 transition-colors text-sm"
+                              aria-label={`Remove ${product.name} from favorites`}
+                              type="button"
+                            >
+                              <Trash className="w-4 h-4 text-rose-600" />
+                              <span className="text-rose-700">Remove</span>
+                            </button>
 
-                            <TooltipProvider>
-                              <Tooltip>
-                                <TooltipTrigger asChild>
-                                  <button
-                                    onClick={() => handleAddToCart(product)}
-                                    className="w-9 h-9 flex items-center justify-center rounded-full bg-shop_dark_green hover:bg-shop_dark_green/90 transition-colors"
-                                    aria-label="Add to cart"
-                                  >
-                                    <ShoppingBag className="w-4 h-4 text-white" />
-                                  </button>
-                                </TooltipTrigger>
-                                <TooltipContent className="bg-gray-900">
-                                  Add to cart
-                                </TooltipContent>
-                              </Tooltip>
-                            </TooltipProvider>
+                            <button
+                              onClick={() => handleAddToCart(product)}
+                              className="flex items-center gap-2 px-3 py-2 rounded-lg bg-shop_dark_green hover:bg-shop_dark_green/90 transition-colors text-sm whitespace-nowrap"
+                              aria-label={`Add ${product.name} to cart`}
+                              type="button"
+                            >
+                              <ShoppingBag className="w-4 h-4 text-white" />
+                              <span className="text-white">Add to Cart</span>
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -242,6 +244,7 @@ const Wishlist = () => {
                   disabled={loading}
                   className="w-full sm:w-auto font-semibold bg-shop_dark_green hover:bg-shop_dark_green/90 text-white px-6"
                   size="lg"
+                  type="button"
                 >
                   <ShoppingBag className="w-4 h-4 mr-2" />
                   {loading ? "Adding..." : "Add All to Cart"}
@@ -251,6 +254,7 @@ const Wishlist = () => {
                   className="w-full sm:w-auto font-semibold px-6"
                   variant="destructive"
                   size="lg"
+                  type="button"
                 >
                   <Trash className="w-4 h-4 mr-2" />
                   Clear Favorites
@@ -272,6 +276,7 @@ const Wishlist = () => {
                 <Button
                   className="bg-shop_dark_green hover:bg-shop_dark_green/90 text-white px-6 sm:px-8"
                   size="lg"
+                  type="button"
                 >
                   Browse Products
                 </Button>
@@ -286,4 +291,4 @@ const Wishlist = () => {
   );
 };
 
-export default Wishlist;
+export default FavoritesPage;

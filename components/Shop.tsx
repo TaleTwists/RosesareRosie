@@ -101,10 +101,10 @@ const Shop = ({ categories }: Props) => {
               setSelectedBrand={setSelectedBrand}
               selectedBrand={selectedBrand}
             /> */}
-            <PriceList
+            {/* <PriceList
               setSelectedPrice={setSelectedPrice}
               selectedPrice={selectedPrice}
-            />
+            /> */}
           </div>
           <div className="flex-1 pt-5">
             <div className="h-[calc(100vh-160px)] overflow-y-auto pr-2 scrollbar-hide">

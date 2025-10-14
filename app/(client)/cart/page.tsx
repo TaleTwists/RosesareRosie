@@ -117,14 +117,13 @@ const CartPage = () => {
                       return (
                         <div
                           key={product?._id}
-                          className="border-b p-2.5 last:border-b-0 flex items-center justify-between gap-5"
+                          className="border-b p-2.5 last:border-b-0 flex items-center justify-between gap-3 md:gap-5"
                         >
-                          <div className="flex flex-1 items-start gap-2 h-36 md:h-44">
+                          <div className="flex flex-1 items-start gap-2 md:gap-3 h-36 md:h-44">
                             {product?.images && (
                               <Link
                                 href={`/product/${product?.slug?.current}`}
-                                className="border p-0.5 md:p-1 mr-2 rounded-md
-                                 overflow-hidden group"
+                                className="border p-0.5 md:p-1 rounded-md overflow-hidden group flex-shrink-0"
                               >
                                 <Image
                                   src={urlFor(product?.images[0]).url()}
@@ -132,22 +131,22 @@ const CartPage = () => {
                                   width={500}
                                   height={500}
                                   loading="lazy"
-                                  className="w-32 md:w-40 h-32 md:h-40 object-cover group-hover:scale-105 hoverEffect"
+                                  className="w-24 md:w-40 h-24 md:h-40 object-cover group-hover:scale-105 hoverEffect"
                                 />
                               </Link>
                             )}
-                            <div className="h-full flex flex-1 flex-col justify-between py-1">
+                            <div className="h-full flex flex-1 flex-col justify-between py-1 min-w-0">
                               <div className="flex flex-col gap-0.5 md:gap-1.5">
-                                <h2 className="text-base font-semibold line-clamp-1">
+                                <h2 className="text-sm md:text-base font-semibold line-clamp-2">
                                   {product?.name}
                                 </h2>
-                                <p className="text-sm capitalize">
+                                <p className="text-xs md:text-sm capitalize line-clamp-1">
                                   Variant:{" "}
                                   <span className="font-semibold">
                                     {product?.variant}
                                   </span>
                                 </p>
-                                <p className="text-sm capitalize">
+                                <p className="text-xs md:text-sm capitalize">
                                   Status:{" "}
                                   <span className="font-semibold">
                                     {product?.status}
@@ -187,10 +186,10 @@ const CartPage = () => {
                               </div>
                             </div>
                           </div>
-                          <div className="flex flex-col items-start justify-between h-36 md:h-44 p-0.5 md:p-1">
+                          <div className="flex flex-col items-end justify-between h-36 md:h-44 p-0.5 md:p-1 flex-shrink-0">
                             <PriceFormatter
                               amount={(product?.price as number) * itemCount}
-                              className="font-bold text-lg"
+                              className="font-bold text-sm md:text-lg whitespace-nowrap"
                             />
                             <QuantityButtons product={product} />
                           </div>
