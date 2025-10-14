@@ -1,20 +1,15 @@
 import React from 'react'
 import HeroPage from '@/components/Hero';
-import SmallCategoryPage from '@/components/SmallCategory';
-import MobileTestimonial from '@/components/MobileTestimonial';
 import Feedback from '@/components/Feedback'
-import Home from '@/components/Home';
+import SmallLogin from '@/components/SmallLogin'
+
 const AboutPage = () => {
   return (
-    <>
-    RosieWig: The one stop shop for all things wig essentials
-
-    {/* <MobileTestimonial /> */}
-    <Feedback />
-    <Home />
-    </>
-   
-
+    <div>
+      {/* <MobileTestimonial /> */}
+      {/* <Feedback />           */}
+      <SmallLogin />
+    </div>
   )
 }
 

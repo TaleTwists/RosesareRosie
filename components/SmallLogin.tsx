@@ -1,19 +1,9 @@
 import React from 'react';
 
-export default function Home() {
+export default function SmallLogin() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex items-center justify-center p-4">
       <div className="w-full max-w-sm bg-white rounded-3xl shadow-2xl overflow-hidden">
-        {/* Status Bar */}
-        <div className="flex justify-between items-center px-6 pt-4 pb-2">
-          <span className="text-sm font-semibold">9:41</span>
-          <div className="flex gap-1">
-            <div className="w-4 h-3 bg-gray-800 rounded-sm"></div>
-            <div className="w-4 h-3 bg-gray-800 rounded-sm"></div>
-            <div className="w-4 h-3 bg-gray-800 rounded-sm"></div>
-          </div>
-        </div>
-
         {/* Hero Images Section */}
         <div className="px-6 py-8">
           <div className="grid grid-cols-2 gap-4 mb-8">
@@ -69,7 +59,7 @@ export default function Home() {
           {/* CTA Buttons */}
           <div className="space-y-3">
             <button className="w-full bg-amber-900 hover:bg-amber-800 text-white font-medium py-4 px-6 rounded-full transition-colors duration-200 shadow-lg">
-              Let's Get Started
+              Let&rsquo;s Get Started
             </button>
             <button className="w-full bg-transparent text-gray-700 font-medium py-4 px-6 rounded-full transition-colors duration-200">
               Already have an account? <span className="text-amber-900 font-semibold">Sign In</span>
