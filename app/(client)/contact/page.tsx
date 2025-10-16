@@ -26,7 +26,7 @@ const ContactPage: React.FC = () => {
       </div> */}
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-16">
+      <div className="max-w-7xl mx-auto px-4 py-16 hidden lg:flex">
         <div className="grid md:grid-cols-2 gap-12">
           {/* Left Column - Form */}
           <Form />
