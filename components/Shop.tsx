@@ -10,6 +10,7 @@ import { client } from "@/sanity/lib/client";
 import { Loader2, ChevronLeft, ChevronRight } from "lucide-react";
 import NoProductAvailable from "./NoProductAvailable";
 import ProductCard from "./ProductCard";
+import MobileSearchBar from "./MobileSearchBar";
 
 interface Props {
   categories: Category[];
@@ -94,7 +95,8 @@ const Shop = ({ categories }: Props) => {
     brandParams || null
   );
   const [selectedPrice, setSelectedPrice] = useState<string | null>(null);
-  
+  const [searchQuery, setSearchQuery] = useState<string>("");
+
   const fetchProducts = async () => {
     setLoading(true);
     try {
@@ -115,22 +117,38 @@ const Shop = ({ categories }: Props) => {
         ...,"categories": categories[]->title
       }
     `;
-      const data = await client.fetch(
+      const fetchedData: Product[] = await client.fetch(
         query,
         { selectedCategory, selectedBrand, minPrice, maxPrice },
         { next: { revalidate: 0 } }
       );
-      setProducts(data);
+      
+      console.log("Fetched products:", fetchedData.length);
+      console.log("Search query:", searchQuery);
+      
+      // Filter by search query
+      const filteredData = searchQuery.trim()
+        ? fetchedData.filter((product) => {
+            const matches = product?.name?.toLowerCase().includes(searchQuery.toLowerCase().trim());
+            if (matches) {
+              console.log("Match found:", product?.name);
+            }
+            return matches;
+          })
+        : fetchedData;
+      
+      console.log("Filtered products:", filteredData.length);
+      setProducts(filteredData);
     } catch (error) {
       console.log("Shop product fetching Error", error);
     } finally {
       setLoading(false);
     }
   };
-
+  
   useEffect(() => {
     fetchProducts();
-  }, [selectedCategory, selectedBrand, selectedPrice]);
+  }, [selectedCategory, selectedBrand, selectedPrice, searchQuery]);
 
   return (
     <div className="border-t">
@@ -144,12 +162,14 @@ const Shop = ({ categories }: Props) => {
             </Title>
             {(selectedCategory !== null ||
               selectedBrand !== null ||
-              selectedPrice !== null) && (
+              selectedPrice !== null ||
+              searchQuery !== "") && (
               <button
                 onClick={() => {
                   setSelectedCategory(null);
                   setSelectedBrand(null);
                   setSelectedPrice(null);
+                  setSearchQuery("");
                 }}
                 className="text-shop_dark_green underline text-sm font-medium hover:text-darkRed hoverEffect"
               >
@@ -159,6 +179,12 @@ const Shop = ({ categories }: Props) => {
           </div>
         </Container>
 
+        {/* Mobile Search Bar */}
+        <MobileSearchBar
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+        />
+
         {/* Mobile Category Carousel */}
         <div className="sticky top-0 z-20">
           <MobileCategoryCarousel
@@ -166,7 +192,7 @@ const Shop = ({ categories }: Props) => {
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
           />
-        </div>
+        </div>  
       </div>
 
       <Container className="mt-5">
@@ -195,7 +221,7 @@ const Shop = ({ categories }: Props) => {
 
         {/* Mobile Header with Reset Button */}
         <div className="md:hidden mb-4">
-          </div>
+        </div>
 
         <div className="flex flex-col md:flex-row gap-5 border-t border-t-shop_dark_green/50">
           {/* Desktop Sidebar - Hidden on mobile */}
