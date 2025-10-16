@@ -31,7 +31,7 @@ const MobileCategoryCarousel = ({
     <div className="relative bg-white border-b border-shop_dark_green/20 py-3">
       <div
         ref={scrollRef}
-        className="flex gap-2 overflow-x-auto scrollbar-hide px-4"
+        className="flex gap-1 overflow-x-auto scrollbar-hide px-4"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         <button

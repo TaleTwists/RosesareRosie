@@ -1,13 +1,14 @@
 "use client";
 import { Category, Product } from "@/sanity.types";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Button } from "./ui/button";
 import { client } from "@/sanity/lib/client";
 import { AnimatePresence, motion } from "motion/react";
 import { Loader2 } from "lucide-react";
 import NoProductAvailable from "./NoProductAvailable";
 import ProductCard from "./ProductCard";
+
 interface Props {
   categories: Category[];
   slug: string;
@@ -18,10 +19,12 @@ const CategoryProducts = ({ categories, slug }: Props) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   const handleCategoryChange = (newSlug: string) => {
-    if (newSlug === currentSlug) return; // Prevent unnecessary updates
+    if (newSlug === currentSlug) return;
     setCurrentSlug(newSlug);
-    router.push(`/category/${newSlug}`, { scroll: false }); // Update URL without
+    router.push(`/category/${newSlug}`, { scroll: false });
   };
 
   const fetchProducts = async (categorySlug: string) => {
@@ -40,24 +43,53 @@ const CategoryProducts = ({ categories, slug }: Props) => {
       setLoading(false);
     }
   };
+
   useEffect(() => {
     fetchProducts(currentSlug);
   }, [router]);
 
   return (
-    <div className="py-5 flex flex-col md:flex-row items-start gap-5">
-      <div className="flex flex-col md:min-w-40 border">
-        {categories?.map((item) => (
-          <Button
-            onClick={() => handleCategoryChange(item?.slug?.current as string)}
-            key={item?._id}
-            className={`bg-transparent border-0 p-0  rounded-none text-darkColor shadow-none hover:bg-shop_orange hover:text-white font-semibold hoverEffect border-b last:border-b-0 transition-colors capitalize ${item?.slug?.current === currentSlug && "bg-shop_orange text-white border-shop_orange"}`}
-          >
-            <p className="w-full text-left px-2">{item?.title}</p>
-          </Button>
-        ))}
+    <div className="py-5">
+      {/* Mobile Horizontal Scrolling Tabs */}
+      <div className="w-full md:hidden mb-5">
+        <div
+          ref={scrollRef}
+          className="flex gap-1 overflow-x-auto scrollbar-hide"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          {categories?.map((item) => (
+            <button
+              key={item?._id}
+              onClick={() => handleCategoryChange(item?.slug?.current as string)}
+              className={`px-4 py-2 rounded-full whitespace-nowrap text-sm font-semibold transition-all ${
+                item?.slug?.current === currentSlug
+                  ? "bg-shop_orange text-white"
+                  : "bg-gray-100 text-darkColor hover:bg-gray-200"
+              }`}
+            >
+              {item?.title}
+            </button>
+          ))}
+        </div>
       </div>
-      <div className="flex-1">
+
+      <div className="flex flex-col md:flex-row items-start gap-5">
+        {/* Desktop Vertical Tabs */}
+        <div className="hidden md:flex flex-col md:min-w-40 border">
+          {categories?.map((item) => (
+            <Button
+              onClick={() => handleCategoryChange(item?.slug?.current as string)}
+              key={item?._id}
+              className={`bg-transparent border-0 p-0 rounded-none text-darkColor shadow-none hover:bg-shop_orange hover:text-white font-semibold hoverEffect border-b last:border-b-0 transition-colors capitalize ${
+                item?.slug?.current === currentSlug && "bg-shop_orange text-white border-shop_orange"
+              }`}
+            >
+              <p className="w-full text-left px-2">{item?.title}</p>
+            </Button>
+          ))}
+        </div>
+
+        <div className="flex-1 w-full">
         {loading ? (
           <div className="flex flex-col items-center justify-center py-10 min-h-80 space-y-4 text-center bg-gray-100 rounded-lg w-full">
             <div className="flex items-center space-x-2 text-shop_light_green">
@@ -81,6 +113,7 @@ const CategoryProducts = ({ categories, slug }: Props) => {
             className="mt-0 w-full"
           />
         )}
+      </div>
       </div>
     </div>
   );
