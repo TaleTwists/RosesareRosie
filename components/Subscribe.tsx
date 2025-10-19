@@ -13,7 +13,7 @@ const Subscribe = () => {
         </span>
       </h1>
       <p className="md:text-base text-gray-500/80 pt-3 pb-4.5 text-sm">
-        Get upto 20% off on your first order and free delivery if you're within
+        Get upto 20% off on your first order and free delivery if you&apos;re within
         Uyo.
       </p>
      <div className="flex items-center max-w-lg w-full md:h-14 h-12 mx-auto">

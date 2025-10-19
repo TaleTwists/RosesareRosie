@@ -47,7 +47,7 @@ export function Faqs() {
               How do I care for and maintain my wig to make it last longer?
             </h3>
             <p>
-              When you purchase our wigs, hair care instructions and tutorials are complimentary with your purchase. We'll send detailed care guides via email and share tips on our social media platforms.
+              When you purchase our wigs, hair care instructions and tutorials are complimentary with your purchase. We&apos;ll send detailed care guides via email and share tips on our social media platforms.
             </p>
             <p>
               Our blog also provides multiple tutorials covering washing, styling, storage, and maintenance tips to help ensure a longer lifespan for your wigs.
@@ -112,7 +112,7 @@ export function Faqs() {
           </AccordionTrigger>
           <AccordionContent className="flex flex-col gap-4 text-balance bg-emerald-900 p-3 rounded text-white">
             <h3 className="font-bold text-md">
-              Can I customize or pre-style my wig before it's shipped to me?
+              Can I customize or pre-style my wig before it&apos;s shipped to me?
             </h3>
             <p>
               Yes! We offer customization services including pre-plucking the hairline, bleaching knots, cutting to your desired length, adding baby hairs, and tinting the lace to match your skin tone.
