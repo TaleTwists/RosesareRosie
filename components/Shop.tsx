@@ -7,7 +7,7 @@ import CategoryList from "./shop/CategoryList";
 import { useSearchParams } from "next/navigation";
 import PriceList from "./shop/PriceList";
 import { client } from "@/sanity/lib/client";
-import { Loader2, ChevronLeft, ChevronRight } from "lucide-react";
+import { Loader2, ChevronLeft, ChevronRight, Search } from "lucide-react";
 import NoProductAvailable from "./NoProductAvailable";
 import ProductCard from "./ProductCard";
 import MobileSearchBar from "./MobileSearchBar";
@@ -198,24 +198,46 @@ const Shop = ({ categories }: Props) => {
       <Container className="mt-5">
         {/* Desktop Header */}
         <div className="hidden md:block sticky top-0 z-10 mb-5">
-          <div className="flex items-center justify-between">
-            <Title className="text-lg uppercase tracking-wide text-shop_dark_green">
+          <div className="flex items-center justify-between gap-8">
+            <Title className="text-lg uppercase tracking-wide text-shop_dark_green whitespace-nowrap">
               Match Products to your needs
             </Title>
-            {(selectedCategory !== null ||
-              selectedBrand !== null ||
-              selectedPrice !== null) && (
-              <button
-                onClick={() => {
-                  setSelectedCategory(null);
-                  setSelectedBrand(null);
-                  setSelectedPrice(null);
-                }}
-                className="text-shop_dark_green underline text-sm mt-2 font-medium hover:text-darkRed hoverEffect"
-              >
-                Reset Filters
-              </button>
-            )}
+            <div className="flex items-center gap-4 flex-1 justify-end">
+              <div className="relative w-full max-w-md">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-shop_light_green" />
+                <input
+                  type="text"
+                  placeholder="Search products..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-shop_dark_green/20 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-shop_dark_green/30 focus:border-shop_dark_green transition-all"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-shop_dark_green/50 hover:text-shop_dark_green"
+                  >
+                    ✕
+                  </button>
+                )}
+              </div>
+              {(selectedCategory !== null ||
+                selectedBrand !== null ||
+                selectedPrice !== null ||
+                searchQuery !== "") && (
+                <button
+                  onClick={() => {
+                    setSelectedCategory(null);
+                    setSelectedBrand(null);
+                    setSelectedPrice(null);
+                    setSearchQuery("");
+                  }}
+                  className="text-shop_dark_green underline text-sm font-medium hover:text-darkRed hoverEffect whitespace-nowrap"
+                >
+                  Reset Filters
+                </button>
+              )}
+            </div>
           </div>
         </div>
 

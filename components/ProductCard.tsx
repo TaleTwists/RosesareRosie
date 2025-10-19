@@ -10,11 +10,10 @@ import Title from "./Title";
 import ProductSideMenu from "./ProductSideMenu";
 import AddToCartButton from "./AddToCartButton";
 
-
 const ProductCard = ({ product }: { product: Product }) => {
   return (
-    <div className="text-sm border-[1px] rounded-md border-darkBlue/20 group bg-white">
-      <div className="relative group overflow-hidden bg-shop_light_bg">
+    <div className="text-sm border-[1px] rounded-md border-darkBlue/20 group bg-white max-w-[200px] md:max-w-none w-full">
+      <div className="relative group overflow-hidden bg-shop_light_bg rounded-t-md">
         {product?.images && (
           <Link href={`/product/${product?.slug?.current}`}>
             <Image
@@ -23,7 +22,7 @@ const ProductCard = ({ product }: { product: Product }) => {
               width={500}
               height={500}
               priority
-              className={`w-full h-64 object-contain overflow-hidden transition-transform bg-shop_light_bg duration-500 
+              className={`w-full h-52 md:h-64 object-contain overflow-hidden transition-transform bg-shop_light_bg duration-500 
               ${product?.stock !== 0 ? "group-hover:scale-105" : "opacity-50"}`}
             />
           </Link>
@@ -46,43 +45,41 @@ const ProductCard = ({ product }: { product: Product }) => {
           </Link>
         )}
       </div>
-      <div className="p-3 flex flex-col gap-2">
+      <div className="p-2 md:p-3 flex flex-col gap-1 md:gap-2">
         {product?.categories && (
-          <p className="uppercase line-clamp-1 text-xs font-medium text-lightText">
+          <p className="uppercase line-clamp-1 text-xs font-medium text-lightText max-sm:hidden">
             {product.categories.map((cat) => cat).join(", ")}
           </p>
         )}
-        <Title className="text-sm line-clamp-1">{product?.name}</Title>
-        <div className="flex items-center gap-2">
-          <div className="flex items-center">
+        <Title className="text-sm md:text-base line-clamp-1 font-medium pt-0.5">
+          {product?.name}
+        </Title>
+        <div className="flex items-center gap-1 md:gap-2">
+          <div className="flex items-center gap-0.5">
             {[...Array(5)].map((_, index) => (
               <StarIcon
                 key={index}
-                className={
+                className={`w-3 h-3 ${
                   index < 4 ? "text-shop_light_green" : " text-lightText"
-                }
+                }`}
                 fill={index < 4 ? "#93D991" : "#ababab"}
               />
             ))}
           </div>
-          <p className="text-lightText text-xs tracking-wide">5 Reviews</p>
-        </div>
-
-        {/* <div className="flex items-center gap-2.5">
-          <p className="font-medium">In Stock</p>
-          <p
-            className={`${product?.stock === 0 ? "text-red-600" : "text-shop_dark_green/80 font-semibold"}`}
-          >
-            {(product?.stock as number) > 0 ? product?.stock : "unavailable"}
+          <p className="text-lightText text-xs tracking-wide max-sm:hidden">
+            5 Reviews
           </p>
-        </div> */}
+        </div>
 
         <PriceView
           price={product?.price}
           discount={product?.discount}
-          className="text-sm"
+          className="text-sm md:text-base font-medium mt-1"
         />
-        <AddToCartButton product={product} className="w-36 rounded-full" />
+        <AddToCartButton 
+          product={product} 
+          className="w-full md:w-36 rounded-full text-xs md:text-sm py-1.5 max-sm:mt-1" 
+        />
       </div>
     </div>
   );
