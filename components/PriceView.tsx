@@ -15,7 +15,7 @@ const PriceView = ({ price, discount, className }: Props) => {
           amount={price}
           className={cn("text-shop_dark_green", className)}
         />
-        {price && discount && discount > 0 && (
+        {price && discount !== undefined && discount > 0 && (
           <PriceFormatter
             amount={price + (discount * price) / 100}
             className={twMerge(

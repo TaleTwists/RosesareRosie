@@ -1,7 +1,9 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import Image, { StaticImageData } from "next/image";
 import { ArrowRightIcon } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import afr from "@/public/afr.png";
 import prod from "@/public/prod.png";
 import africana from "@/public/africana.png";
@@ -36,80 +38,67 @@ const HeroPage: React.FC = () => {
     },
   ];
 
-  const [currentSlide, setCurrentSlide] = useState<number>(0);
-  const [isTransitioning, setIsTransitioning] = useState<boolean>(true);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true },
+    [Autoplay({ delay: 4000, stopOnInteraction: false })]
+  );
 
-  // Duplicate cards for infinite loop effect
-  const extendedCards = [...cards, ...cards];
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => prev + 1);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  React.useEffect(() => {
+    if (!emblaApi) return;
 
-  useEffect(() => {
-    if (currentSlide === cards.length) {
-      timeoutRef.current = setTimeout(() => {
-        setIsTransitioning(false);
-        setCurrentSlide(0);
-      }, 700);
-    } else {
-      setIsTransitioning(true);
-    }
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
+
+    emblaApi.on("select", onSelect);
+    onSelect();
 
     return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
+      emblaApi.off("select", onSelect);
     };
-  }, [currentSlide, cards.length]);
+  }, [emblaApi]);
 
-  const handleSlideChange = (index: number): void => {
-    setIsTransitioning(true);
-    setCurrentSlide(index);
+  const scrollTo = (index: number) => {
+    if (emblaApi) emblaApi.scrollTo(index);
   };
 
   return (
     <>
       <div className="xl:hidden w-full text-sm text-slate-600">
-        <div className="overflow-hidden relative w-full px-1">
-          <div
-            className={`flex ${isTransitioning ? "transition-transform duration-700 ease-in-out" : ""}`}
-            style={{
-              transform: `translateX(-${currentSlide * 100}%)`,
-            }}
-          >
-            {extendedCards.map((card: Card, index: number) => (
-              <div key={index} className="w-full flex-shrink-0 px-1">
-                <div
-                  className={`flex items-center justify-between w-full ${card.bgColor} rounded-3xl p-6 px-8 group`}
-                >
-                  <div>
-                    <p
-                      className={`text-3xl font-medium bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent max-w-40`}
-                    >
-                      {card.title}
-                    </p>
-                    <Link
-                      href="/shop"
-                      className="inline-block bg-slate-800 text-white p-1.5 rounded-md font-semibold tracking-wide mt-3 text-xs"
-                    >
-                      <p className="flex items-center gap-1">
-                        Buy Now{" "}
-                        <ArrowRightIcon
-                          className="group-hover:ml-2 transition-all"
-                          size={18}
-                        />
+        <div className="relative w-full px-1">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {cards.map((card: Card, index: number) => (
+                <div key={index} className="flex-[0_0_100%] min-w-0 px-1">
+                  <div
+                    className={`flex items-center justify-between w-full ${card.bgColor} rounded-3xl p-6 px-8 group`}
+                  >
+                    <div>
+                      <p
+                        className={`text-3xl font-medium bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent max-w-40`}
+                      >
+                        {card.title}
                       </p>
-                    </Link>
+                      <Link
+                        href="/shop"
+                        className="inline-block bg-slate-800 text-white p-1.5 rounded-md font-semibold tracking-wide mt-3 text-xs"
+                      >
+                        <p className="flex items-center gap-1">
+                          Buy Now{" "}
+                          <ArrowRightIcon
+                            className="group-hover:ml-2 transition-all"
+                            size={18}
+                          />
+                        </p>
+                      </Link>
+                    </div>
+                    <Image className="w-32" src={card.image} alt={card.title} />
                   </div>
-                  <Image className="w-32" src={card.image} alt={card.title} />
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           {/* Dots indicator */}
@@ -117,9 +106,9 @@ const HeroPage: React.FC = () => {
             {cards.map((card: Card, index: number) => (
               <div
                 key={index}
-                onClick={() => handleSlideChange(index)}
+                onClick={() => scrollTo(index)}
                 className={`h-2 w-2 rounded-full cursor-pointer transition-all ${
-                  currentSlide % cards.length === index
+                  selectedIndex === index
                     ? "bg-slate-700 w-6"
                     : "bg-slate-400/60"
                 }`}

@@ -13,7 +13,7 @@ const AboutPage = () => {
       <SmallLogin />
       <Card />
 
-    {/* <Instagram /> */}
+    <Instagram />
     <Faqs />
     <Subscribe />
     </div>
