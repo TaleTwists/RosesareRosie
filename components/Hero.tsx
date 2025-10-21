@@ -19,19 +19,19 @@ interface Card {
 const HeroPage: React.FC = () => {
   const cards: Card[] = [
     {
-      title: "Best products",
+      title: "Discover RosieWig",
       gradient: "from-slate-800 to-[#FFAD51]",
       bgColor: "bg-orange-200",
       image: africana,
     },
     {
-      title: "20% discounts",
+      title: "Premium Wigs",
       gradient: "from-slate-800 to-[#78B2FF]",
       bgColor: "bg-blue-200",
       image: afr,
     },
     {
-      title: "20% discounts",
+      title: "Luxury Hair Care",
       gradient: "from-slate-800 to-[#78B2FF]",
       bgColor: "bg-blue-200",
       image: prod,

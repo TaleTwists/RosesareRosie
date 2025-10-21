@@ -105,7 +105,7 @@ const FavoritesPage = (): JSX.Element => {
             <div className="py-6 sm:py-8">
               {/* Header */}
               <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-shop_dark_green rounded flex items-center justify-center flex-shrink-0">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-shop_dark_green/50 rounded flex items-center justify-center flex-shrink-0">
                   <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-white fill-white" />
                 </div>
                 <h1 className="text-2xl sm:text-3xl font-bold text-shop_light_green">
@@ -188,7 +188,7 @@ const FavoritesPage = (): JSX.Element => {
 
                             <button
                               onClick={() => handleAddToCart(product)}
-                              className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg bg-shop_dark_green hover:bg-shop_dark_green/90 transition-colors text-sm"
+                              className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg bg-shop_dark_green/80 hover:bg-shop_dark_green/90 transition-colors text-sm"
                               aria-label={`Add ${product.name} to cart`}
                               type="button"
                             >

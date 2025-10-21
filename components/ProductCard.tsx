@@ -76,10 +76,15 @@ const ProductCard = ({ product }: { product: Product }) => {
           discount={product?.discount}
           className="text-sm md:text-base font-medium mt-1"
         />
-        <AddToCartButton 
+        {/* <AddToCartButton 
           product={product} 
-          className="w-full md:w-36 rounded-full text-xs md:text-sm py-1.5 max-sm:mt-1" 
-        />
+          className="w-full md:w-36 rounded-full text-xs md:text-sm py-1.5 max-sm:mt-1 " 
+        /> */}
+
+        <AddToCartButton 
+  product={product} 
+  className="w-full md:w-36 rounded-md md:rounded-full text-xs md:text-sm px-3 py-1 md:px-4 md:py-1.5 max-sm:m-0 " 
+/>
       </div>
     </div>
   );

@@ -51,7 +51,7 @@ const BottomNavigation: FC<BottomNavigationProps> = ({
     },
     {
       name: "Favorite",
-      href: "/favorite",
+      href: "/wishlist",
       useFavoriteButton: true,
     },
     {

@@ -37,12 +37,17 @@ const ProductSideMenu = ({
     <div
       className={cn("absolute top-2 right-2 hover:cursor-pointer", className)}
     >
-      <div
-        onClick={handleFavorite}
-        className={`p-2.5 rounded-full hover:bg-shop_dark_green/80 hover:text-white hoverEffect  ${existingProduct ? "bg-shop_dark_green/80 text-white" : "bg-lightColor/10"}`}
-      >
-        <Heart size={15} />
-      </div>
+    <div
+  onClick={handleFavorite}
+  className={`p-2.5 rounded-full shadow-sm hover:bg-shop_dark_green/80 hover:text-white hoverEffect ${
+    existingProduct 
+      ? "bg-shop_dark_green text-white" 
+      : "bg-white text-black"
+  }`}
+>
+  <Heart size={15} />
+</div>
+
     </div>
   );
 };
