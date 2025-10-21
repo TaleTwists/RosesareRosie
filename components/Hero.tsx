@@ -14,27 +14,35 @@ interface Card {
   gradient: string;
   bgColor: string;
   image: StaticImageData;
+  buttonText: string;
+  link: string;
 }
 
 const HeroPage: React.FC = () => {
   const cards: Card[] = [
     {
-      title: "Discover RosieWig",
+      title: "RosieWig Presents:",
       gradient: "from-slate-800 to-[#FFAD51]",
       bgColor: "bg-orange-200",
       image: africana,
+      buttonText: "Learn More",
+      link: "/about",
     },
     {
       title: "Premium Wigs",
-      gradient: "from-slate-800 to-[#78B2FF]",
-      bgColor: "bg-blue-200",
+      gradient: "from-slate-600 to-[#A0FF74]",
+      bgColor: "bg-green-200",
       image: afr,
+      buttonText: "Buy Now",
+      link: "/shop",
     },
     {
       title: "Luxury Hair Care",
       gradient: "from-slate-800 to-[#78B2FF]",
       bgColor: "bg-blue-200",
       image: prod,
+      buttonText: "Buy Now",
+      link: "/shop",
     },
   ];
 
@@ -77,16 +85,16 @@ const HeroPage: React.FC = () => {
                   >
                     <div>
                       <p
-                        className={`text-3xl font-medium bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent max-w-40`}
+                        className={`text-xl font-medium bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent max-w-40`}
                       >
                         {card.title}
                       </p>
                       <Link
-                        href="/shop"
-                        className="inline-block bg-slate-800 text-white p-1.5 rounded-md font-semibold tracking-wide mt-3 text-xs"
+                        href={card.link}
+                        className="mt-2 font-semibold"
                       >
                         <p className="flex items-center gap-1">
-                          Buy Now{" "}
+                          {card.buttonText}{" "}
                           <ArrowRightIcon
                             className="group-hover:ml-2 transition-all"
                             size={18}
