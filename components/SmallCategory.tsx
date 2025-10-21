@@ -9,8 +9,8 @@ import lotion from '@/public/lotion.svg'
 export default function SmallCategory() {
   const categories = [
     { name: 'Hairs', image: wigs, slug: 'hairs' },  
-    { name: 'Appliances', image: dryer, slug: 'appliances' },
-    { name: 'Products', image: lotion, slug: 'products' },    
+    { name: 'Appliances', image: dryer, slug: 'hair-appliances' },
+    { name: 'Products', image: lotion, slug: 'hair-products' },    
     { name: 'Skincare', image: skincares, slug: 'skincare' },
   ];
 

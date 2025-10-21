@@ -37,6 +37,8 @@ const ProductGrid = () => {
 
   return (
     <Container className="flex flex-col lg:px-0 my-10">
+        <h2 className="text-gray-800 scroll-m-20 text-xl font-semibold tracking-tight">Recommended for you</h2>
+
       <HomeTabbar selectedTab={selectedTab} onTabSelect={setSelectedTab} />
       {loading ? (
         <div className="flex flex-col items-center justify-center py-10 min-h-80 space-y-4 text-center bg-gray-100 rounded-lg w-full mt-10">
