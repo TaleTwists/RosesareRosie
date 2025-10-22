@@ -43,7 +43,7 @@ const ProductGrid = () => {
         <h2 className=" text-gray-800 scroll-m-20 text-xl font-semibold tracking-tight ">
           Recommended for you
         </h2>
-        <div className="flex items-center justify-between bg-gradient-to-r from-green-200 to-blue-300 rounded-lg p-1 shadow-md m-3.5">
+        <div className="flex items-center justify-between bg-gradient-to-r from-green-200 to-blue-300 rounded-lg p-1 shadow-md my-3.5">
           <div className="text-left">
             <h5 className="text-[10px] font-semibold text-gray-600 mb-0.5">
               FREE DELIVERY
