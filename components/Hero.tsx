@@ -22,12 +22,12 @@ interface Card {
 const HeroPage: React.FC = () => {
   const cards: Card[] = [
     {
-      title: "RosieWig Presents:",
+      title: "Glam with Rosie",
       gradient: "from-slate-800 to-[#FFAD51]",
       bgColor: "bg-orange-200",
       buttonBgColor: "bg-orange-800",
       image: africana,
-      buttonText: "Learn More",
+      buttonText: " More",
       link: "/about",
     },
     {

@@ -9,7 +9,7 @@ interface Props {
 
 const HomeTabBar = ({ selectedTab, onTabSelect }: Props) => {
   return (
-    <div className="flex items-center flex-wrap gap-2 md:gap-5 justify-between">
+    <div className="flex items-center flex-wrap gap-2 md:gap-5 justify-between sm:mt-1.5">
       <div className="flex items-center gap-1 text-xs md:text-sm font-semibold">
         <div className="flex items-center gap-1 md:gap-1.5 lg:gap-3">
           {productType?.map((item) => (
