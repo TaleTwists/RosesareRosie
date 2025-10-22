@@ -15,9 +15,9 @@ const Home = async () => {
   return (
     <Container className="">
       <HomeBanner />
-      <SmallCategory />
-      {/* <DealMobile /> */}
+      <SmallCategory />     
       <ProductGrid />
+       <DealMobile />
       <HomeCategories categories = {categories}/>
       <LatestBlog />
       <ContactPage />
