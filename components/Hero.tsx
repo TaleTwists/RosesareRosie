@@ -13,6 +13,7 @@ interface Card {
   title: string;
   gradient: string;
   bgColor: string;
+  buttonBgColor: string;
   image: StaticImageData;
   buttonText: string;
   link: string;
@@ -24,6 +25,7 @@ const HeroPage: React.FC = () => {
       title: "RosieWig Presents:",
       gradient: "from-slate-800 to-[#FFAD51]",
       bgColor: "bg-orange-200",
+      buttonBgColor: "bg-orange-800",
       image: africana,
       buttonText: "Learn More",
       link: "/about",
@@ -32,6 +34,8 @@ const HeroPage: React.FC = () => {
       title: "Premium Wigs",
       gradient: "from-slate-600 to-[#A0FF74]",
       bgColor: "bg-green-200",
+      // buttonBgColor: "bg-green-800",
+      buttonBgColor: "bg-slate-800",
       image: afr,
       buttonText: "Buy Now",
       link: "/shop",
@@ -40,16 +44,17 @@ const HeroPage: React.FC = () => {
       title: "Luxury Hair Care",
       gradient: "from-slate-800 to-[#78B2FF]",
       bgColor: "bg-blue-200",
+      // buttonBgColor: "bg-blue-800",
+      buttonBgColor: "bg-slate-800",
       image: prod,
       buttonText: "Buy Now",
       link: "/shop",
     },
   ];
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true },
-    [Autoplay({ delay: 4000, stopOnInteraction: false })]
-  );
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 4000, stopOnInteraction: false }),
+  ]);
 
   const [selectedIndex, setSelectedIndex] = React.useState(0);
 
@@ -81,19 +86,19 @@ const HeroPage: React.FC = () => {
               {cards.map((card: Card, index: number) => (
                 <div key={index} className="flex-[0_0_100%] min-w-0 px-1">
                   <div
-                    className={`flex items-center justify-between w-full ${card.bgColor} rounded-3xl p-6 px-8 group`}
+                    className={`flex items-center justify-between w-full ${card.bgColor} rounded-3xl p-6 px-8  gap-2.5`}
                   >
                     <div>
                       <p
-                        className={`text-xl font-medium bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent max-w-40`}
+                        className={`text-lg font-semibold  bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent max-w-40 pb-1.5`}
                       >
                         {card.title}
                       </p>
                       <Link
                         href={card.link}
-                        className="mt-2 font-semibold"
+                        className="mt-2 font-semibold inline-block"
                       >
-                        <p className="flex items-center gap-1">
+                        <p className={`flex items-center gap-1 ${card.buttonBgColor} text-white rounded px-3 py-1.5 hover:opacity-90 transition-all`}>
                           {card.buttonText}{" "}
                           <ArrowRightIcon
                             className="group-hover:ml-2 transition-all"

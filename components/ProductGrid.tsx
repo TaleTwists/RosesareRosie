@@ -11,6 +11,7 @@ import HomeTabbar from "./HomeTabBar";
 import { productType } from "@/constants/data";
 import { Product } from "@/sanity.types";
 
+
 const ProductGrid = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
@@ -37,7 +38,10 @@ const ProductGrid = () => {
 
   return (
     <Container className="flex flex-col lg:px-0 my-10">
-        <h2 className="text-gray-800 scroll-m-20 text-xl font-semibold tracking-tight">Recommended for you</h2>
+        <div className="md:hidden">
+        <h2 className=" text-gray-800 scroll-m-20 text-xl font-semibold tracking-tight my-2">Recommended for you</h2>        
+        </div>
+       
 
       <HomeTabbar selectedTab={selectedTab} onTabSelect={setSelectedTab} />
       {loading ? (
