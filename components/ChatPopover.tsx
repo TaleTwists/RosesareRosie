@@ -26,7 +26,7 @@ export function ChatPopover() {
   }
 
   return (
-    <Popover className ="lg:hidden">
+    <Popover>
       <PopoverTrigger asChild>
         <button className="whatsapp-link relative">
           <span className="absolute left-[7px] top-[7px] z-50 size-10">
