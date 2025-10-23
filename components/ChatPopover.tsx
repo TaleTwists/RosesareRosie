@@ -18,7 +18,7 @@ import Image from "next/image"
 import { useForm, ValidationError } from '@formspree/react'
 
 export function ChatPopover() {
-  const [state, handleSubmit] = useForm("xovkndvr")
+  const [state, handleSubmit] = useForm("xovkgaqv")
 
   const handlePhoneInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/\D/g, '')
@@ -26,7 +26,7 @@ export function ChatPopover() {
   }
 
   return (
-    <Popover>
+    <Popover className ="lg:hidden">
       <PopoverTrigger asChild>
         <button className="whatsapp-link relative">
           <span className="absolute left-[7px] top-[7px] z-50 size-10">
