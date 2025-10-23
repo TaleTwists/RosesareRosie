@@ -3,6 +3,7 @@ import ProductCard from "@/components/ProductCard";
 import Title from "@/components/Title";
 import { getDealProducts } from "@/sanity/queries";
 import React from "react";
+import Image from "next/image";
 
 const DealPage = async () => {
   const products = await getDealProducts();
