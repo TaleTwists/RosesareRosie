@@ -52,7 +52,7 @@ export default function Form() {
   }
 
   return (
-    <div className="p-8 rounded-lg shadow-lg mb-2">
+    <div className="p-8 rounded-lg shadow-lg mb-2 hidden">
       <h2 className="text-3xl font-bold text-gray-900 mb-2">Get In Touch</h2>
       <p className="text-gray-600 mb-8">
         Fill out the form below and we'll get back to you shortly.
