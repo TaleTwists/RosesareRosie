@@ -38,7 +38,7 @@ export default function Form() {
             Message Sent Successfully!
           </h3>
           <p className="text-gray-600">
-            Thank you for reaching out. We'll get back to you as soon as possible.
+            Thank you for reaching out. We&apos;ll get back to you as soon as possible.
           </p>
           <Button
             onClick={() => window.location.reload()}
@@ -55,7 +55,7 @@ export default function Form() {
     <div className="p-8 rounded-lg shadow-lg mb-2 hidden">
       <h2 className="text-3xl font-bold text-gray-900 mb-2">Get In Touch</h2>
       <p className="text-gray-600 mb-8">
-        Fill out the form below and we'll get back to you shortly.
+        Fill out the form below and we&apos;ll get back to you shortly.
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-6">

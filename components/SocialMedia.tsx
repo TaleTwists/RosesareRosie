@@ -1,4 +1,4 @@
-import { Facebook, Mail, Instagram, MessageCircle } from "lucide-react";
+import { Facebook, Mail, Instagram, MessageCircle, Phone } from "lucide-react";
 import React from "react";
 import {
   Tooltip,
@@ -7,7 +7,6 @@ import {
   TooltipTrigger,
 } from "./ui/tooltip";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 interface Props {
   className?: string;
   iconClassName?: string;
@@ -16,23 +15,28 @@ interface Props {
 const socialLink = [
      {
         title: "Instagram",
-        href: "/https://www.instagram.com/rosie_wig?igsh=MXE0c3dncjZpejFhbw%3D%3D&utm_source=qr",
+        href: "https://www.instagram.com/rosie_wig?igsh=MXE0c3dncjZpejFhbw%3D%3D&utm_source=qr",
         icon: <Instagram className='w-5 h-5' />
     }, 
     {
         title: "Facebook",
-        href: "/https://www.facebook.com/rosie.wig.9",
+        href: "https://www.facebook.com/rosie.wig.9",
         icon: <Facebook className='w-5 h-5' />
     },            
      {
         title: "0708 283 1875, 0806 689 0131",
         href: "/",
-        icon: <MessageCircle className='w-5 h-5' />
+        icon: <Phone className='w-5 h-5' />
     }, 
      {
         title: "info.rosiewig@gmail.com",
-        href: "/",
+        href: "mailto:info.rosiewig@gmail.com",
         icon: <Mail className='w-5 h-5' />
+    },
+    {
+        title: "RosieWig What'sApp",
+        href: "https://wa.link/mo1b1i",
+        icon: <MessageCircle className='w-5 h-5' />
     },
 ];
 
@@ -43,18 +47,18 @@ const SocialMedia = ({ className, iconClassName, tooltipClassName }: Props) => {
         {socialLink?.map((item) => (
           <Tooltip key={item?.title}>
             <TooltipTrigger asChild>
-              <Link
+              <a
                 key={item?.title}
                 target="_blank"
                 rel="noopener noreferrer"
                 href={item?.href}
                 className={cn(
-                  "p-2 border rounded-full hover:text-white hover:border-shop_light_green hoverEffect",
+                  "p-2  rounded-full text-white bg-shop_light_green hoverEffect",
                   iconClassName
                 )}
               >
                 {item?.icon}
-              </Link>
+              </a>
             </TooltipTrigger>
             <TooltipContent
               className={cn(

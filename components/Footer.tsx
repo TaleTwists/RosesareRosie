@@ -1,24 +1,34 @@
+'use client'
+
 import React from "react";
 import Container from "./Container";
 import Logo from "./Logo";
 import SocialMedia from "./SocialMedia";
 import { SubText, SubTitle } from "./ui/text";
 import { categoriesData, quickLinksData } from "@/constants/data";
+import { usePathname } from "next/navigation";
+
 import Link from "next/link";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import FooterTop from "./FooterTop";
 
 const Footer = () => {
+    const pathname = usePathname();
+    if (pathname === '/cart' ) {
+      return null;
+    }
+  
   return (
     <footer className="bg-white border-t">
-      <Container>       
-         <FooterTop />
+      <Container>
+        <FooterTop />
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-1.5">
           <div className="space-y-4">
             <Logo />
             <SubText>
-               Discover curated hair luxuries at Rosie Wig – premium wigs and accessories tailored to your individual style and budget.
+              Discover curated hair luxuries at Rosie Wig – premium wigs and
+              accessories tailored to your individual style and budget.
             </SubText>
             <SocialMedia
               className="text-darkColor/60"
@@ -28,12 +38,12 @@ const Footer = () => {
           </div>
           <div>
             <SubTitle>Quick Links</SubTitle>
-            <ul className="space-y-3 mt-4">
+            <ul className="space-y-3 mt-5">
               {quickLinksData?.map((item) => (
                 <li key={item?.title}>
                   <Link
                     href={item?.href}
-                    className="hover:text-shop_light_green hoverEffect font-medium hover:underline decoration-shop_light_green"
+                    className="hover:text-shop_light_green hoverEffect hover:underline decoration-shop_light_green text-gray-600"
                   >
                     {item?.title}
                   </Link>
@@ -49,7 +59,7 @@ const Footer = () => {
                   <Link
                     href={`/category/${item?.href}`}
                     className="hover:text-shop_light_green hover:underline decoration-shop_light_green
-                    hoverEffect font-medium text-gray-600"
+                    hoverEffect text-gray-600"
                   >
                     {item?.title}
                   </Link>
@@ -65,7 +75,12 @@ const Footer = () => {
             </SubText>
             <form className="space-y-3">
               <Input placeholder="Enter your email" type="email" required />
-              <Button className="w-full bg-shop_dark_green/80 text-lightBg shadow-none border border-shop_dark_green/80 font-semibold tracking-wide text-white hover:bg-shop_dark_green hover:border-shop_dark_green hoverEffect" size="lg">Subscribe</Button>
+              <Button
+                className="w-full bg-shop_dark_green/80 text-lightBg shadow-none border border-shop_dark_green/80 font-semibold tracking-wide text-white hover:bg-shop_dark_green hover:border-shop_dark_green hoverEffect"
+                size="lg"
+              >
+                Subscribe
+              </Button>
             </form>
           </div>
         </div>
