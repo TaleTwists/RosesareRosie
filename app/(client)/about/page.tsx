@@ -7,15 +7,13 @@ import Subscribe from '@/components/Subscribe';
 import { Faqs } from '@/components/Faqs';
 import Instagram from '@/components/Instagram';
 import Herod from '@/components/Trial'
+import Main from '@/components/Main';
 
 const AboutPage = () => {
   return (
     <div>    
-      <SmallLogin />
-      <Card />
-
-      <Herod />
-
+      {/* <Main /> */}
+    <Feedback />
     <Instagram />
     <Faqs />
     <Subscribe />

@@ -29,7 +29,7 @@ const data: ContactItemData[] = [
 const FooterTop = () => {
   
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-16 p-2 shadow-sm hover:shadow-shop_light_green/20 py-5">
+    <div className="hidden lg:grid grid-cols-1 lg:grid-cols-4 gap-4 mt-16 p-2 shadow-sm hover:shadow-shop_light_green/20 py-5 ">
       {data?.map((item, index) => (
         <div key={index} className="flex items-center gap-3 group hover:bg-gray-50 p-4 transition-colors hoverEffect">
           <div className="flex-shrink-0 w-18 h-20">
