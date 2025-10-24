@@ -291,7 +291,7 @@ const CartPage = () => {
                     <h2>Order Summary</h2>
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
-                        <span>Sub+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Total</span>
+                        <span>SubTotal</span>
                         <PriceFormatter amount={getSubTotalPrice()} />
                       </div>
                       <div className="flex items-center justify-between">
