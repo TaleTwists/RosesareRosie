@@ -21,7 +21,7 @@ const NoAccess = ({
         <CardHeader className="flex items-center flex-col">
           <Logo />
           <CardTitle className="text-2xl font-bold text-center">
-            Welcome Back! BOOOOO
+            Welcome Back!
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">

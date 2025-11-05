@@ -29,11 +29,7 @@ const HomeBanner = () => {
         </div>
 
         <div>
-          <Image
-            src={banner_1}
-            alt="banner_1"
-            className="w-96"
-          />
+          <Image src={banner_1} alt="banner_1" className="w-96" />
         </div>
       </div>
     </>

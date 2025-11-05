@@ -31,7 +31,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <LiveChat />
+         <LiveChat /> 
         </div>
         <BottomNavigation className="block lg:hidden" />
       </body>

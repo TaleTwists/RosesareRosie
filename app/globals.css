@@ -96,7 +96,7 @@
 
   .dark {
     --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
+    --foreground: oklch(34.523% 0.05918 20.53);
     --card: oklch(0.205 0 0);
     --card-foreground: oklch(0.985 0 0);
     --popover: oklch(0.205 0 0);
@@ -153,45 +153,35 @@
   }
 
   /* Show only on mobile screens (768px and below) */
-  @media only screen and (max-width: 1000px) {
-    .whatsapp-link{
-      display: block;
-      position: fixed;
-      bottom: 90px; /* Changed from -80px to show immediately */
-      right: 20px;
-      z-index: 50;
-      transition: bottom 0.3s ease-in-out;
-    }
-  p
-    .whatsapp-link.visible{
-      bottom: 90px;
-    }
-  }
+  
 
-  /* For smaller mobile screens */
-  @media only screen and (max-width: 500px) {
-    .whatsapp-link{
-      bottom: 80px; /* Show immediately on small screens too */
-    }
+/* Show on all screen sizes */
+.whatsapp-link {
+  display: block;
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  z-index: 50;
+}
 
-    .whatsapp-link.visible{
-      bottom: 80px;
-    }
+/* For smaller mobile screens */
+@media only screen and (max-width: 500px) {
+  .whatsapp-link {
+    bottom: 80px;
   }
+}
 
-  .whatsapp-icon{
-    width: 55px;
-    height: 55px;
-    transition: transform 0.3s ease;
-  }
+.whatsapp-icon {
+  width: 55px;
+  height: 55px;
+  transition: transform 0.3s ease;
+}
 
-  .whatsapp-icon:hover{
-    transform: scale(1.2);
-  }
+.whatsapp-icon:hover {
+  transform: scale(1.2);
+}
 
-  ::placeholder{
-    color: #3b9c3c;
-  }
+  
 
   .subscribe input::placeholder{
     color: #6a7282;

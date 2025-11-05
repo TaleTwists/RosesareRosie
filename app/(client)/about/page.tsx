@@ -1,17 +1,15 @@
 import React from 'react'
-import HeroPage from '@/components/Hero';
 import Feedback from '@/components/Feedback'
-import SmallLogin from '@/components/SmallLogin'
-import Card from '@/components/Card';
 import Subscribe from '@/components/Subscribe';
 import { Faqs } from '@/components/Faqs';
 import Instagram from '@/components/Instagram';
-import Herod from '@/components/Trial'
-import Main from '@/components/Main';
+import { Main } from '@/components/Main'; 
+import About from '@/components/About';
 
 const AboutPage = () => {
   return (
     <div>    
+      <About />
       <Main />
     <Feedback />
     <Instagram />
