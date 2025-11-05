@@ -10,7 +10,7 @@ const AboutPage = () => {
   return (
     <div>    
       <About />
-      <Main />
+      {/* <Main /> */}
     <Feedback />
     <Instagram />
     <Faqs />
