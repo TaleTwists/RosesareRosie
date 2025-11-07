@@ -4,22 +4,20 @@
 **/
 import { defineCliConfig } from 'sanity/cli'
 
-// const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-// const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
-// const appId = process.env.APP_ID
-
-// export default defineCliConfig({
-//     api: { projectId, dataset }, 
-//     autoUpdates: true,
-
-// })
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
 
 export default defineCliConfig({
-  api: {
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET
-  },
-  studioHost: process.env.NEXT_PUBLIC_SANITY_STUDIO_HOSTNAME
+    api: { projectId, dataset }, 
+    autoUpdates: true,
+
 })
 
+// export default defineCliConfig({
+//   api: {
+//     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+//     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET
+//   },
+//   studioHost: process.env.NEXT_PUBLIC_SANITY_STUDIO_HOSTNAME
+// })
 
