@@ -33,7 +33,7 @@ const LatestBlog = async () => {
         </div>
       </div>
       <Title>Latest Blog</Title>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
         {blogs?.map((blog) => (
           <div key={blog?._id} className="rounded-lg overflow-hidden">
             {blog?.mainImage && (

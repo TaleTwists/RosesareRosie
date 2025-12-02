@@ -51,20 +51,20 @@ const Feedback: React.FC<RecentFeedbackProps> = ({
     },
     {
       id: 2,
-      name: "Robert Karmazov",
+      name: "Robert Peter",
       rating: 4,
       comment:
-        "Auctor integer enim vitae tempus ultricies officiis nam. Sed duis mattis urta lacus etiam. Aliquam!",
+        "I needed help picking out a gift for my wife and the team was incredibly helpful! The customer feedback service is awesome.",
       date: "2 days ago",
-      avatar: "https://i.pravatar.cc/150?img=12",
+      avatar: "man.jpg",
     },
     {
       id: 3,
-      name: "Sarah Johnson",
+      name: "Sarah John",
       rating: 5,
       comment: "Outstanding experience from start to finish. Highly recommend!",
       date: "5 days ago",
-      avatar: "https://i.pravatar.cc/150?img=9",
+      avatar: "person.jpg",
     },
   ];
 
