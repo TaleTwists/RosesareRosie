@@ -13,7 +13,7 @@ const About = () => {
       </Title>
 
       <section className="w-full py-12">
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-8 lg:px-16">
           {/* Vision */}
           <div className="bg-white p-8 rounded-xl shadow-lg flex-1 max-w-xs text-center hover:scale-105 transition-transform duration-300">
             <h3 className="text-xl font-semibold mb-4 text-emerald-600">
